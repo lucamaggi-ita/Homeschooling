@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultura Geral Moderna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ──────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Sora', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: var(--section-alt);
+      color: var(--lt-text);
+      min-height: 100vh;
+      display: flex;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Design tokens ───────────── */
+    :root {
+      --sb-w: 220px;
+      --sb-bg: #0A0C12;
+      --sb-border: #1C2030;
+      --accent-gold: #E8B84B;
+      --accent-coral: #E8604B;
+      --accent-teal: #3DC6B4;
+      --accent-violet: #8B6FE8;
+      --accent-sky: #4BA8E8;
+      --page-bg: #FAF7F0;
+      --section-alt: #0D0F1C;
+      --section-world: #E3F2EE;
+      --card-bg: #1A1E2E;
+      --card-border: #252A3E;
+      --text-primary: #F0EBE0;
+      --text-muted: #8B8FA8;
+      --radius-card: 16px;
+      --radius-lg: 20px;
+      /* light-section text */
+      --lt-text: #1A1520;
+      --lt-muted: #5E5870;
+      --lt-faint: #8E8AA0;
+    }
+
+    /* ── Layout ──────────────────── */
+    .sidebar {
+      width: var(--sb-w);
+      min-height: 100vh;
+      background: var(--sb-bg);
+      border-right: 1px solid var(--sb-border);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 100;
+      padding: 0 0 24px;
+    }
+
+    .main {
+      margin-left: var(--sb-w);
+      flex: 1;
+      background: var(--page-bg);
+      min-height: 100vh;
+      color: var(--lt-text);
+    }
+
+    /* ── Sidebar internals ────────── */
+    .sb-brand {
+      padding: 28px 20px 24px;
+      border-bottom: 1px solid var(--sb-border);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .sb-logo {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-coral) 100%);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800;
+      color: #0A0C12;
+      flex-shrink: 0;
+    }
+
+    .sb-brand-text {
+      line-height: 1.2;
+    }
+    .sb-brand-text .title {
+      font-size: 12px; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .sb-brand-text .subtitle {
+      font-size: 10px; color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    .sb-nav {
+      flex: 1;
+      padding: 16px 12px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+
+    .sb-nav-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13px; font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+    .sb-nav-item:hover {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-primary);
+    }
+    .sb-nav-item.active {
+      background: rgba(232,184,75,0.12);
+      color: var(--accent-gold);
+    }
+    .sb-nav-item.active::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 4px; bottom: 4px;
+      width: 3px;
+      background: var(--accent-gold);
+      border-radius: 0 3px 3px 0;
+    }
+
+    .sb-nav-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .sb-nav-item.active .sb-nav-icon {
+      background: rgba(232,184,75,0.15);
+    }
+    .sb-nav-item:hover:not(.active) .sb-nav-icon {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .sb-section-label {
+      font-size: 10px; font-weight: 700;
+      color: #3C4060;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 16px 12px 6px;
+    }
+
+    .sb-alunos {
+      padding: 16px;
+      border-top: 1px solid var(--sb-border);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .sb-aluno-label {
+      font-size: 10px; color: #3C4060;
+      text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
+    }
+    .sb-alunos-row {
+      display: flex; gap: 8px;
+    }
+    .sb-aluno-chip {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 11px; font-weight: 600;
+      flex: 1; justify-content: center;
+    }
+    .sb-aluno-chip.enzo {
+      background: rgba(61,198,180,0.12);
+      color: var(--accent-teal);
+    }
+    .sb-aluno-chip.felipe {
+      background: rgba(139,111,232,0.12);
+      color: var(--accent-violet);
+    }
+    .sb-aluno-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+    }
+    .enzo .sb-aluno-dot { background: var(--accent-teal); }
+    .felipe .sb-aluno-dot { background: var(--accent-violet); }
+
+    /* ── Sections ────────────────── */
+    .section {
+      padding: 40px 40px 60px;
+    }
+
+    /* Section 1 — Nesta semana */
+    .section-current {
+      background: var(--page-bg);
+      color: var(--lt-text);
+    }
+
+    /* Section 2 — Explore o mundo */
+    .section-world {
+      background: var(--section-world);
+      color: var(--lt-text);
+      position: relative;
+      overflow: hidden;
+    }
+    .section-world::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(61,198,180,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Section 3 — Biblioteca */
+    .section-library {
+      background: var(--section-alt);
+      color: var(--text-primary);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+    }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-size: 22px; font-weight: 800;
+      color: inherit;
+      line-height: 1.2;
+    }
+    /* library section always uses light text */
+    .section-library .section-title { color: var(--text-primary); }
+
+    /* ── Section 1 grid ──────────── */
+    .current-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* ── Week card (vertical 3:4) ── */
+    .week-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .week-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+    }
+
+    .week-card-cover {
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
+      background: #0D1020;
+    }
+
+    /* Placeholder cover SVG art for Semana 1 */
+    .cover-placeholder {
+      width: 100%; height: 100%;
+      position: relative;
+      background: linear-gradient(160deg, #0D1A2E 0%, #1A0D1A 50%, #0D2010 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .cover-placeholder svg {
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+    }
+
+    .cover-badge {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 11px; font-weight: 700;
+      color: var(--accent-gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .cover-status-dot {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 8px; height: 8px;
+      background: var(--accent-teal);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(61,198,180,0.2);
+    }
+
+    .week-card-body {
+      padding: 18px 20px 20px;
+      display: flex; flex-direction: column; gap: 12px;
+      flex: 1;
+      background: var(--card-bg);
+      color: var(--text-primary);
+    }
+
+    .week-number {
+      font-size: 11px; font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    .week-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 17px; font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .week-chips {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+
+    .chip {
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 10px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .chip-atlas {
+      background: rgba(75,168,232,0.12);
+      color: var(--accent-sky);
+      border: 1px solid rgba(75,168,232,0.25);
+    }
+    .chip-ficha {
+      background: rgba(139,111,232,0.12);
+      color: var(--accent-violet);
+      border: 1px solid rgba(139,111,232,0.25);
+    }
+    .chip-status {
+      background: rgba(61,198,180,0.1);
+      color: var(--accent-teal);
+      border: 1px solid rgba(61,198,180,0.2);
+    }
+
+    .week-cta {
+      margin-top: auto;
+      background: var(--accent-gold);
+      color: #0A0C12;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: opacity 0.15s;
+    }
+    .week-cta:hover { opacity: 0.9; }
+
+    /* ── Discovery cards column ──── */
+    .discovery-col {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+
+    .disc-card {
+      border-radius: var(--radius-card);
+      padding: 20px 22px;
+      cursor: pointer;
+      display: flex; align-items: flex-start; gap: 16px;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .disc-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    }
+
+    .disc-card.conceito {
+      background: #F2EFFE;
+      border-color: rgba(139,111,232,0.28);
+    }
+    .disc-card.missoes {
+      background: #E8FAF5;
+      border-color: rgba(61,198,180,0.32);
+    }
+    .disc-card.conversa {
+      background: #FEF7E6;
+      border-color: rgba(232,184,75,0.35);
+    }
+    .disc-card.ficha {
+      background: #E8F3FD;
+      border-color: rgba(75,168,232,0.28);
+    }
+
+    .disc-icon-wrap {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .conceito .disc-icon-wrap { background: rgba(139,111,232,0.16); }
+    .missoes .disc-icon-wrap  { background: rgba(61,198,180,0.16); }
+    .conversa .disc-icon-wrap { background: rgba(232,184,75,0.18); }
+    .ficha .disc-icon-wrap    { background: rgba(75,168,232,0.15); }
+
+    .disc-body { flex: 1; min-width: 0; }
+
+    .disc-label {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+    .conceito .disc-label { color: #6A50C8; }
+    .missoes  .disc-label { color: #1E9880; }
+    .conversa .disc-label { color: #B87820; }
+    .ficha    .disc-label { color: #2878C8; }
+
+    .disc-title {
+      font-size: 14px; font-weight: 700;
+      color: var(--lt-text);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .disc-desc {
+      font-size: 12px;
+      color: var(--lt-muted);
+      line-height: 1.5;
+    }
+
+    .disc-arrow {
+      margin-left: auto;
+      color: var(--lt-faint);
+      font-size: 14px;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Section 2 — World ────────── */
+    .world-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .world-card {
+      border-radius: var(--radius-card);
+      padding: 24px 22px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .world-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+    }
+
+    .world-card.atlas {
+      background: #FFFFFF;
+      border-color: rgba(61,198,180,0.35);
+      grid-column: span 2;
+    }
+    .world-card.materiais {
+      background: #F8F4FF;
+      border-color: rgba(139,111,232,0.3);
+    }
+
+    .world-card-icon {
+      font-size: 32px; margin-bottom: 14px;
+    }
+    .world-card-title {
+      font-size: 17px; font-weight: 800;
+      color: #1A2830;
+      margin-bottom: 6px;
+    }
+    .world-card-desc {
+      font-size: 13px;
+      color: #486070;
+      line-height: 1.5;
+    }
+
+    .world-countries {
+      display: flex; gap: 8px;
+      margin-top: 18px; flex-wrap: wrap;
+    }
+    .country-pill {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px; font-weight: 600;
+      background: rgba(28,130,160,0.1);
+      color: #1A6080;
+      border: 1px solid rgba(28,130,160,0.22);
+    }
+
+    .world-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px;
+      font-size: 12px; font-weight: 700;
+      color: #1A6888;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .world-card.materiais .world-cta { color: #6050B8; }
+
+    /* ── Section 3 — Library ─────── */
+    .library-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .lib-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .lib-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+
+    .lib-cover {
+      aspect-ratio: 3/4;
+      position: relative;
+    }
+
+    .lib-cover-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #0D1A2E 0%, #1A0D1A 50%, #0D2010 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .lib-cover-inner svg {
+      opacity: 0.7;
+    }
+
+    .lib-body {
+      padding: 12px 14px 14px;
+      background: var(--card-bg);
+    }
+    .lib-num {
+      font-size: 10px; font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .lib-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 13px; font-weight: 600;
+      color: #E0DBD0;
+      line-height: 1.4;
+    }
+    .lib-status {
+      margin-top: 8px;
+      display: flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 600;
+      color: var(--accent-teal);
+    }
+    .lib-status-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent-teal);
+    }
+
+    .library-cta-row {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .library-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 13px; font-weight: 700;
+      color: #9898B8;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+    .library-btn:hover {
+      background: rgba(255,255,255,0.11);
+      color: #E0DBD0;
+    }
+
+    /* ── Mobile bottom nav ────────── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(10,12,18,0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--sb-border);
+      padding: 8px 0 env(safe-area-inset-bottom, 8px);
+      z-index: 200;
+    }
+
+    .mobile-nav-inner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .mobile-nav-item {
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      padding: 6px 16px;
+      border-radius: 10px;
+      font-size: 10px; font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .mobile-nav-item.active { color: var(--accent-gold); }
+    .mobile-nav-item span:first-child { font-size: 20px; }
+
+    /* ── Responsive ───────────────── */
+    @media (max-width: 900px) {
+      :root { --sb-w: 0px; }
+      .sidebar { display: none; }
+      .main { margin-left: 0; }
+      .mobile-nav { display: block; }
+      .section { padding: 28px 20px 48px; }
+
+      .current-grid {
+        grid-template-columns: 1fr;
+      }
+      .week-card {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+      .week-card-cover { aspect-ratio: 3/4; }
+
+      .world-grid {
+        grid-template-columns: 1fr;
+      }
+      .world-card.atlas { grid-column: span 1; }
+
+      .library-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title { font-size: 18px; }
+      .library-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ SIDEBAR -->
+<aside class="sidebar" aria-label="Navegação principal">
+
+  <div class="sb-brand">
+    <div class="sb-logo">C</div>
+    <div class="sb-brand-text">
+      <div class="title">Cultura Geral</div>
+      <div class="subtitle">Moderna · S1 de 2026</div>
+    </div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-section-label">Navegar</div>
+
+    <div class="sb-nav-item active">
+      <div class="sb-nav-icon">🏠</div>
+      Início
+    </div>
+
+    <div class="sb-nav-item">
+      <div class="sb-nav-icon">📚</div>
+      Biblioteca
+    </div>
+
+    <div class="sb-nav-item">
+      <div class="sb-nav-icon">🗺️</div>
+      Atlas
+    </div>
+
+    <div class="sb-nav-item">
+      <div class="sb-nav-icon">📄</div>
+      Materiais
+    </div>
+  </nav>
+
+  <div class="sb-alunos">
+    <div class="sb-aluno-label">Alunos</div>
+    <div class="sb-alunos-row">
+      <div class="sb-aluno-chip enzo">
+        <span class="sb-aluno-dot"></span>
+        Enzo · 11a
+      </div>
+      <div class="sb-aluno-chip felipe">
+        <span class="sb-aluno-dot"></span>
+        Felipe · 15a
+      </div>
+    </div>
+  </div>
+
+</aside>
+
+<!-- ═══════════════════════════════════════════════════════ MAIN -->
+<main class="main" id="main">
+
+  <!-- ─────────────── SECTION 1 · Nesta semana ─────────────── -->
+  <section class="section section-current" aria-labelledby="sec1-title">
+
+    <div class="section-header">
+      <div class="section-eyebrow" style="color: #B87820">Nesta semana</div>
+      <h2 class="section-title" id="sec1-title">Semana 1 — pronta para explorar</h2>
+    </div>
+
+    <div class="current-grid">
+
+      <!-- Week card -->
+      <div class="week-card" role="article" aria-label="Semana 1: Por que existem países ricos e países pobres?">
+        <div class="week-card-cover">
+          <div class="cover-placeholder" aria-hidden="true">
+            <!-- Placeholder editorial: silhouettes of ports, buildings, cargo — to be replaced by illustrated cover -->
+            <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Sky gradient -->
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0D1A2E"/>
+                  <stop offset="100%" stop-color="#1A0D1A"/>
+                </linearGradient>
+                <linearGradient id="gold-glow" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#E8B84B" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#E8604B" stop-opacity="0.2"/>
+                </linearGradient>
+              </defs>
+              <rect width="300" height="400" fill="url(#sky)"/>
+
+              <!-- Stars -->
+              <circle cx="40" cy="30" r="1" fill="#E8B84B" opacity="0.6"/>
+              <circle cx="120" cy="18" r="1.5" fill="white" opacity="0.4"/>
+              <circle cx="200" cy="42" r="1" fill="white" opacity="0.3"/>
+              <circle cx="260" cy="22" r="1" fill="#4BA8E8" opacity="0.5"/>
+              <circle cx="80" cy="60" r="0.8" fill="white" opacity="0.25"/>
+
+              <!-- Ocean horizon glow -->
+              <ellipse cx="150" cy="230" rx="200" ry="40" fill="#E8B84B" opacity="0.06"/>
+
+              <!-- City skyline — distant -->
+              <rect x="20" y="160" width="14" height="70" rx="2" fill="#1C2840" opacity="0.8"/>
+              <rect x="38" y="145" width="18" height="85" rx="2" fill="#1E2A42"/>
+              <rect x="58" y="155" width="12" height="75" rx="2" fill="#1A2438"/>
+              <rect x="72" y="138" width="20" height="92" rx="2" fill="#1E2A42"/>
+              <rect x="94" y="148" width="15" height="82" rx="2" fill="#1C2840"/>
+              <rect x="111" y="130" width="22" height="100" rx="2" fill="#202C46"/>
+              <rect x="135" y="142" width="16" height="88" rx="2" fill="#1A2438"/>
+              <rect x="153" y="150" width="18" height="80" rx="2" fill="#1C2840"/>
+              <rect x="173" y="135" width="24" height="95" rx="2" fill="#202C46"/>
+              <rect x="199" y="155" width="14" height="75" rx="2" fill="#1A2438"/>
+              <rect x="215" y="148" width="20" height="82" rx="2" fill="#1E2A42"/>
+              <rect x="237" y="140" width="16" height="90" rx="2" fill="#1C2840"/>
+              <rect x="255" y="158" width="12" height="72" rx="2" fill="#1A2438"/>
+
+              <!-- Building windows (lit) -->
+              <rect x="115" y="138" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.7"/>
+              <rect x="121" y="145" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.5"/>
+              <rect x="115" y="150" width="3" height="3" rx="0.5" fill="#4BA8E8" opacity="0.6"/>
+              <rect x="176" y="143" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.6"/>
+              <rect x="182" y="150" width="3" height="3" rx="0.5" fill="#4BA8E8" opacity="0.5"/>
+              <rect x="176" y="158" width="3" height="3" rx="0.5" fill="white" opacity="0.3"/>
+              <rect x="42" y="152" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.5"/>
+              <rect x="218" y="155" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.4"/>
+
+              <!-- Water -->
+              <rect x="0" y="230" width="300" height="170" fill="#050D1A" opacity="0.9"/>
+
+              <!-- Water shimmer lines -->
+              <line x1="10" y1="250" x2="60" y2="250" stroke="#4BA8E8" stroke-width="0.5" opacity="0.15"/>
+              <line x1="80" y1="258" x2="150" y2="258" stroke="#4BA8E8" stroke-width="0.5" opacity="0.1"/>
+              <line x1="170" y1="244" x2="240" y2="244" stroke="#E8B84B" stroke-width="0.5" opacity="0.12"/>
+              <line x1="20" y1="270" x2="100" y2="270" stroke="#4BA8E8" stroke-width="0.5" opacity="0.08"/>
+
+              <!-- Ship hull -->
+              <path d="M60 310 L240 310 L230 340 L70 340 Z" fill="#1A2438"/>
+              <!-- Ship deck superstructure -->
+              <rect x="100" y="285" width="80" height="25" rx="3" fill="#1E2A42"/>
+              <rect x="120" y="265" width="40" height="22" rx="2" fill="#202C48"/>
+              <!-- Crane -->
+              <rect x="195" y="275" width="4" height="36" fill="#2A3858"/>
+              <line x1="197" y1="275" x2="225" y2="268" stroke="#2A3858" stroke-width="2"/>
+              <!-- Containers on dock -->
+              <rect x="10" y="295" width="30" height="15" rx="2" fill="#3DC6B4" opacity="0.5"/>
+              <rect x="42" y="295" width="30" height="15" rx="2" fill="#E8604B" opacity="0.4"/>
+              <rect x="250" y="295" width="30" height="15" rx="2" fill="#E8B84B" opacity="0.4"/>
+
+              <!-- Gold light streak from city -->
+              <path d="M150 228 Q80 240 0 250 L0 232 Q80 232 150 228" fill="url(#gold-glow)" opacity="0.4"/>
+
+              <!-- Overlay gradient bottom -->
+              <rect x="0" y="320" width="300" height="80" fill="url(#overlay-bot)" opacity="1"/>
+              <defs>
+                <linearGradient id="overlay-bot" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#050D1A" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#050D1A" stop-opacity="0.7"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Placeholder label -->
+              <text x="150" y="390" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white" opacity="0.3">capa ilustrada — a ser encomendada</text>
+            </svg>
+          </div>
+          <div class="cover-badge">Semana 1</div>
+          <div class="cover-status-dot" title="Disponível"></div>
+        </div>
+
+        <div class="week-card-body">
+          <div class="week-number">Semana 1 · 4 encontros</div>
+          <h3 class="week-title">Por que existem países ricos e países pobres?</h3>
+          <div class="week-chips">
+            <span class="chip chip-atlas">Atlas</span>
+            <span class="chip chip-ficha">Ficha</span>
+            <span class="chip chip-status">Disponível</span>
+          </div>
+          <a href="semanas/01/index.html" class="week-cta">
+            Começar a semana
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Discovery cards -->
+      <div class="discovery-col" aria-label="Destaques da semana">
+
+        <div class="disc-card conceito">
+          <div class="disc-icon-wrap">💡</div>
+          <div class="disc-body">
+            <div class="disc-label">Conceito-chave</div>
+            <div class="disc-title">Desenvolvimento é ampliar oportunidades reais</div>
+            <div class="disc-desc">Não é apenas ter mais dinheiro circulando — é poder estudar, trabalhar com dignidade, circular com segurança e planejar o futuro.</div>
+          </div>
+          <div class="disc-arrow">›</div>
+        </div>
+
+        <div class="disc-card missoes">
+          <div class="disc-icon-wrap">🎯</div>
+          <div class="disc-body">
+            <div class="disc-label">Missões desta semana</div>
+            <div class="disc-title">Enzo e Felipe têm desafios calibrados</div>
+            <div class="disc-desc">Enzo explora trajetos, mapas e cadeias do cacau. Felipe argumenta, usa contraexemplos e escreve teses sobre o Brasil.</div>
+          </div>
+          <div class="disc-arrow">›</div>
+        </div>
+
+        <div class="disc-card conversa">
+          <div class="disc-icon-wrap">💬</div>
+          <div class="disc-body">
+            <div class="disc-label">Para conversar em família</div>
+            <div class="disc-title">7 perguntas para o debate</div>
+            <div class="disc-desc">Um país pode ser rico e injusto ao mesmo tempo? Por que um porto, uma escola e um contrato aparecem na mesma conversa?</div>
+          </div>
+          <div class="disc-arrow">›</div>
+        </div>
+
+        <div class="disc-card ficha">
+          <div class="disc-icon-wrap">📋</div>
+          <div class="disc-body">
+            <div class="disc-label">Ficha imprimível</div>
+            <div class="disc-title">1–2 páginas para atividade presencial</div>
+            <div class="disc-desc">Quatro lentes para um país, teste do contraexemplo, cadeia do cacau ao chocolate e hipótese sobre o Brasil.</div>
+          </div>
+          <div class="disc-arrow">›</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── SECTION 2 · Explore o mundo ──────────── -->
+  <section class="section section-world" aria-labelledby="sec2-title">
+
+    <div class="section-header">
+      <div class="section-eyebrow" style="color: #187868">Explore o mundo</div>
+      <h2 class="section-title" id="sec2-title">Atlas, mapas e materiais de estudo</h2>
+    </div>
+
+    <div class="world-grid">
+
+      <div class="world-card atlas">
+        <div class="world-card-icon">🗺️</div>
+        <div class="world-card-title">Atlas da Semana 1</div>
+        <div class="world-card-desc">Localize Brasil, Noruega, Coreia do Sul e Nigéria. Observe acesso ao mar, vizinhos, posição no continente e proximidade de rotas marítimas.</div>
+        <div class="world-countries">
+          <span class="country-pill">🇧🇷 Brasil</span>
+          <span class="country-pill">🇳🇴 Noruega</span>
+          <span class="country-pill">🇰🇷 Coreia do Sul</span>
+          <span class="country-pill">🇳🇬 Nigéria</span>
+        </div>
+        <div class="world-cta">Abrir Atlas →</div>
+      </div>
+
+      <div class="world-card materiais">
+        <div class="world-card-icon">📖</div>
+        <div class="world-card-title">Fontes e leituras</div>
+        <div class="world-card-desc">Banco Mundial, PNUD, Our World in Data e IBGE — fontes com ano, definição e cobertura para aprofundar os temas da semana.</div>
+        <div class="world-cta">Ver materiais →</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ─────────────── SECTION 3 · Biblioteca ───────────────── -->
+  <section class="section section-library" aria-labelledby="sec3-title">
+
+    <div class="section-header">
+      <div class="section-eyebrow" style="color: var(--accent-violet)">Biblioteca de semanas</div>
+      <h2 class="section-title" id="sec3-title">Coleção do curso</h2>
+    </div>
+
+    <div class="library-grid">
+
+      <!-- Semana 1 — única existente -->
+      <div class="lib-card">
+        <div class="lib-cover">
+          <div class="lib-cover-inner" aria-hidden="true">
+            <svg viewBox="0 0 200 266" xmlns="http://www.w3.org/2000/svg" width="120" aria-hidden="true">
+              <rect width="200" height="266" fill="none"/>
+              <!-- Minimal port silhouette, small scale -->
+              <rect x="20" y="100" width="10" height="50" rx="1" fill="#1E2A42" opacity="0.7"/>
+              <rect x="33" y="92" width="12" height="58" rx="1" fill="#202C48" opacity="0.8"/>
+              <rect x="48" y="88" width="14" height="62" rx="1" fill="#1E2A42" opacity="0.7"/>
+              <rect x="65" y="96" width="10" height="54" rx="1" fill="#1C2840" opacity="0.7"/>
+              <rect x="78" y="84" width="16" height="66" rx="1" fill="#202C48" opacity="0.8"/>
+              <rect x="97" y="90" width="12" height="60" rx="1" fill="#1E2A42" opacity="0.7"/>
+              <rect x="112" y="80" width="18" height="70" rx="1" fill="#202C48" opacity="0.8"/>
+              <rect x="133" y="94" width="10" height="56" rx="1" fill="#1C2840" opacity="0.7"/>
+              <rect x="146" y="86" width="14" height="64" rx="1" fill="#1E2A42" opacity="0.7"/>
+              <rect x="163" y="100" width="10" height="50" rx="1" fill="#202C48" opacity="0.7"/>
+              <rect x="0" y="150" width="200" height="116" fill="#050D1A" opacity="0.8"/>
+              <!-- Ship -->
+              <path d="M40 185 L160 185 L154 200 L46 200 Z" fill="#1A2438" opacity="0.9"/>
+              <rect x="70" y="170" width="55" height="16" rx="2" fill="#1E2A42" opacity="0.9"/>
+              <!-- Gold reflection -->
+              <ellipse cx="100" cy="152" rx="80" ry="10" fill="#E8B84B" opacity="0.06"/>
+              <!-- Containers -->
+              <rect x="8" y="178" width="18" height="9" rx="1" fill="#3DC6B4" opacity="0.5"/>
+              <rect x="28" y="178" width="18" height="9" rx="1" fill="#E8604B" opacity="0.4"/>
+              <rect x="172" y="178" width="18" height="9" rx="1" fill="#E8B84B" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="lib-body">
+          <div class="lib-num">Semana 1</div>
+          <div class="lib-title">Por que existem países ricos e países pobres?</div>
+          <div class="lib-status">
+            <span class="lib-status-dot"></span>
+            Disponível
+          </div>
+        </div>
+      </div>
+
+      <!-- Próximas semanas — estados honestos (não publicadas) -->
+      <div class="lib-card" style="opacity:0.35; pointer-events:none; cursor:default;" aria-hidden="true">
+        <div class="lib-cover">
+          <div class="lib-cover-inner" style="background:#0F111A;">
+            <svg viewBox="0 0 120 160" width="60" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="80" r="24" fill="none" stroke="#252A3E" stroke-width="2" stroke-dasharray="4 4"/>
+              <text x="60" y="86" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#252A3E">em breve</text>
+            </svg>
+          </div>
+        </div>
+        <div class="lib-body">
+          <div class="lib-num">Semana 2</div>
+          <div class="lib-title" style="color:var(--text-muted)">A próxima semana chegará em breve</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="library-cta-row">
+      <button class="library-btn">
+        Ver toda a Biblioteca
+        <span>→</span>
+      </button>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- Mobile bottom nav -->
+<nav class="mobile-nav" aria-label="Navegação mobile">
+  <div class="mobile-nav-inner">
+    <div class="mobile-nav-item active">
+      <span>🏠</span>
+      <span>Início</span>
+    </div>
+    <div class="mobile-nav-item">
+      <span>📚</span>
+      <span>Biblioteca</span>
+    </div>
+    <div class="mobile-nav-item">
+      <span>🗺️</span>
+      <span>Atlas</span>
+    </div>
+    <div class="mobile-nav-item">
+      <span>📄</span>
+      <span>Materiais</span>
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>

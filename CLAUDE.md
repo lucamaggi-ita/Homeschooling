@@ -1,0 +1,183 @@
+# CLAUDE.md — Curso de Cultura Geral Moderna
+
+Documento permanente de orientação do projeto. Deve ser lido no início de cada sessão de desenvolvimento.
+
+---
+
+## 1. Missão do projeto
+
+Este é um curso HTML-first de cultura geral moderna desenvolvido para estudo em família.
+
+**Alunos:** Enzo (11 anos) e Felipe (15 anos).
+
+O curso funciona com **uma lição comum com níveis internos** — não são dois cursos separados. O mesmo tema é apresentado para os dois, com missões e desafios calibrados para cada idade dentro da mesma lição.
+
+**Objetivo:** desenvolver compreensão do mundo real, pensamento crítico, curiosidade intelectual e capacidade de conectar geografia, história, economia, ciência, sociedade e atualidade.
+
+---
+
+## 2. Divisão de responsabilidades
+
+| Papel | Responsabilidade |
+|---|---|
+| **Luca** | Aprova decisões relevantes, conteúdos e publicação. Autoridade final sobre qualquer mudança de substância. |
+| **ChatGPT** | Autor e editor didático dos conteúdos em Markdown. Responsável pela consistência pedagógica, tom, estrutura das lições e fichas. |
+| **Claude** | Responsável pelo site: arquitetura, HTML, CSS, componentes, navegação, responsividade, acessibilidade, conversão Markdown → HTML e integração de vídeo. |
+
+**Regra crítica:** Claude não deve reescrever, resumir, simplificar, cortar ou alterar o sentido de conteúdos Markdown aprovados por Luca, sem autorização expressa.
+
+---
+
+## 3. Princípios didáticos
+
+- Tom profissional, claro, narrativo e concreto. Não infantil.
+- Profundidade sem linguagem acadêmica desnecessária.
+- Não ideológico, sem preconceitos, sem explicações deterministas ou simplistas.
+- O curso distingue explicitamente: **fatos**, **interpretações**, **hipóteses** e **perguntas em aberto**.
+- Dados usados no site devem ter **fonte, ano e definição** quando relevantes.
+
+---
+
+## 4. Contrato dos conteúdos Markdown
+
+Cada semana terá, em regra, dois arquivos entregues pelo ChatGPT e aprovados por Luca:
+
+- `SEMANA_XX_CONTEUDO_SITE.md` — lição completa para o site
+- `SEMANA_XX_FICHA_IMPRIMIVEL.md` — ficha curta para atividades presenciais
+
+### Frontmatter obrigatório
+
+Todo Markdown semanal deve ter frontmatter YAML. Os nomes, valores e tipos dos campos são dados editoriais definidos pelo autor; Claude deve preservá-los exatamente como recebidos, sem impor enumerações, converter formatos ou normalizá-los silenciosamente.
+
+**Campos esperados em ambos os tipos de arquivo:** `semana`, `titulo`, `idade_alvo`, `formato`, `status`. O campo `tema` é opcional.
+
+**Campos adicionais esperados em `SEMANA_XX_CONTEUDO_SITE.md`:** `subtitulo`, `atlas`, `ficha_imprimivel`.
+
+**Campo adicional esperado em `SEMANA_XX_FICHA_IMPRIMIVEL.md`:** `paginas_alvo`.
+
+Em particular:
+- `ficha_imprimivel` pode ser booleano ou referência a arquivo — aceitar como fornecido.
+- `paginas_alvo` pode ser intervalo textual ou número — aceitar como fornecido.
+- `idade_alvo`, `formato`, `semana` e `status` devem ser aceitos exatamente como fornecidos pelo autor.
+
+Se um campo esperado estiver ausente ou houver ambiguidade real, sinalizar e pedir instrução antes de qualquer alteração no conteúdo.
+
+### Blocos semânticos
+
+Claude deve reconhecer e transformar os seguintes blocos em componentes HTML consistentes, sem perder texto ou significado:
+
+| Bloco Markdown | Componente no site |
+|---|---|
+| `:::conceito-chave` | Destaque visual de conceito central |
+| `:::para-conversar` | Caixa de perguntas para discussão em família |
+| `:::atlas` | Referência ao Atlas (link ou mapa integrado) |
+| `:::missao-enzo` | Missão calibrada para 11 anos |
+| `:::desafio-felipe` | Desafio calibrado para 15 anos |
+| `:::video` | Bloco de vídeo incorporado com título, objetivo e perguntas pós-vídeo |
+
+Tratamento de blocos não reconhecidos:
+- **Em desenvolvimento:** sinalizar claramente no console com nome do arquivo e número da linha onde o bloco foi encontrado.
+- **Na renderização:** preservar o texto do bloco de forma visível no HTML (ex.: elemento `<div>` com classe `bloco-desconhecido`). Nunca descartar o conteúdo silenciosamente.
+
+---
+
+## 5. Atlas, vídeos e ficha imprimível
+
+### Atlas
+
+- O Atlas é uma seção separada do site, não embutida nas lições.
+- As lições **fazem referência** ao Atlas (link ou mapa contextual), mas não o duplicam.
+- O conteúdo do Atlas é mantido independentemente das semanas.
+
+### Vídeos
+
+- Vídeos devem ser incorporáveis (iframe ou player nativo do YouTube).
+- Cada bloco `:::video` deve conter: título do vídeo, URL, objetivo pedagógico e pelo menos uma pergunta pós-vídeo.
+- Claude não escolhe vídeos; apenas integra os vídeos definidos no Markdown aprovado.
+
+### Ficha imprimível
+
+- A ficha é curta, focada em atividades para preencher.
+- Não deve repetir textos longos da lição — apenas referências, perguntas e espaços de resposta.
+- Deve ser renderizável como página para impressão (`@media print`) com CSS adequado.
+
+---
+
+## 6. Experiência do site
+
+O site é uma **ferramenta de estudo**, não uma página de marketing.
+
+**Prioridades:**
+- Leitura confortável em desktop e celular
+- Navegação clara por semanas com progresso visível
+- Acessibilidade (contraste, semântica HTML, navegação por teclado)
+- Estabilidade visual — nada que pise no conteúdo ou quebre o layout entre semanas
+
+**Vedações:**
+- Visual infantil ou interface excessivamente decorativa
+- Conteúdos essenciais escondidos atrás de interações desnecessárias (acordeões, tabs, modais) sem justificativa clara
+- Animações que interfiram na leitura
+
+---
+
+## 7. Autonomia e limites de Claude
+
+**Claude pode decidir autonomamente:**
+- Detalhes técnicos de HTML, CSS, JavaScript
+- Escolhas visuais compatíveis com estas regras (tipografia, espaçamento)
+- Propor uma paleta coerente para apreciação de Luca — mas a identidade visual inicial só se torna padrão do curso após aprovação explícita; após aprovada, Claude pode aplicá-la autonomamente
+- Refatorações de código que não alteram comportamento visível
+
+**Claude deve pedir aprovação antes de:**
+- Mudar estrutura didática ou currículo
+- Alterar, resumir ou complementar conteúdo Markdown aprovado
+- Escolher ou substituir fontes, vídeos ou imagens
+- Renomear ou reorganizar semanas
+- Qualquer decisão que altere a substância ou sequência do curso
+
+**Antes de integrar uma semana**, Claude deve verificar:
+- [ ] Frontmatter presente e completo
+- [ ] Todos os blocos semânticos reconhecidos
+- [ ] Links internos e externos funcionando
+- [ ] Layout responsivo testado em viewport mobile e desktop
+- [ ] Ficha imprimível renderiza corretamente
+
+---
+
+## 8. Memória e mudanças futuras
+
+- Este `CLAUDE.md` deve permanecer **estável e conciso**.
+- Novas decisões específicas (escolhas de paleta, plugins usados, convenções de slug, etc.) devem ser registradas em `docs/DECISOES_DO_PROJETO.md`, com data e motivo.
+- Mudanças em `CLAUDE.md` requerem aprovação de Luca e devem ser registradas em `docs/DECISOES_DO_PROJETO.md`.
+- Nunca alterar silenciosamente decisões anteriores sem registro explícito.
+
+### Estrutura de pastas sugerida (não criar agora)
+
+```
+/
+├── CLAUDE.md
+├── index.html
+├── docs/
+│   └── DECISOES_DO_PROJETO.md
+├── semanas/
+│   ├── 01/
+│   │   ├── index.html
+│   │   └── ficha.html
+│   └── ...
+├── atlas/
+│   └── index.html
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── img/
+└── conteudo/
+    ├── Semana_01/
+    │   ├── SEMANA_01_CONTEUDO_SITE.md
+    │   └── SEMANA_01_FICHA_IMPRIMIVEL.md
+    ├── Semana_02/
+    │   ├── SEMANA_02_CONTEUDO_SITE.md
+    │   └── SEMANA_02_FICHA_IMPRIMIVEL.md
+    └── ...
+```
+
+A pasta `conteudo/` guarda os Markdown originais aprovados, como fonte de verdade. Os arquivos HTML em `semanas/` são gerados a partir deles.
