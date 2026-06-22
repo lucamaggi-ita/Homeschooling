@@ -1,0 +1,555 @@
+/* ficha-print.css — Fichas do Cultura Geral Moderna
+   Paleta Brasil & Açaí (aprovada 2026-06-22)
+   Dois modos de impressão:
+     • normal       — exibe respostas digitadas
+     • body.print-blank — oculta valores; mantém linhas e estrutura sempre visíveis */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+
+body {
+  font-family: 'Sora', system-ui, sans-serif;
+  background: #FAF7F0;
+  color: #1A1520;
+  padding: 32px 24px 48px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Screen-only nav bar ─────────────────────────────── */
+.screen-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E0DBD0;
+}
+
+.screen-bar-back {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5E5870;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.screen-bar-back:hover { color: #1A1520; }
+
+.ficha-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Save indicator */
+#ficha-save-status {
+  font-size: 11px;
+  color: #007A2E;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  pointer-events: none;
+  margin-right: 4px;
+}
+#ficha-save-status.visible { opacity: 1; }
+
+/* Secondary action buttons */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: transparent;
+  color: #5E5870;
+  border: 1px solid #D0C8BC;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+.action-btn:hover { background: #F0EBE0; color: #1A1520; }
+
+/* Primary print buttons */
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  background: #2C0E20;
+  color: #FAF7F0;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+.print-btn:hover { opacity: 0.85; }
+.print-btn-blank { background: #5C2445; }
+
+/* ── Ficha header ─────────────────────────────────── */
+.ficha-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #1A1520;
+}
+
+.ficha-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #786050;
+  margin-bottom: 6px;
+}
+
+.ficha-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1A1520;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.ficha-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #5E5870;
+}
+
+.ficha-meta-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ficha-meta-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+input.ficha-meta-input {
+  border: none;
+  border-bottom: 1px solid #B0A8A0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  color: #1A1520;
+  outline: none;
+  padding: 2px 4px;
+  width: 140px;
+}
+input.ficha-meta-input[data-field-id="semana-01:meta:data"] { width: 100px; }
+input.ficha-meta-input:focus { border-bottom-color: #2C0E20; }
+
+/* ── Sections ─────────────────────────────────────── */
+.ficha-section { margin-bottom: 28px; }
+
+.ficha-section-title {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  padding: 7px 12px;
+  background: #2C0E20;
+  color: #FAF9F5;
+  border-radius: 4px;
+}
+
+/* ── Tables ───────────────────────────────────────── */
+.ficha-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.ficha-table th {
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #F0EBE0;
+  border: 1px solid #D0C8BC;
+  color: #5E5870;
+}
+
+.ficha-table td {
+  padding: 0;
+  border: 1px solid #D0C8BC;
+  vertical-align: top;
+}
+
+.fill-label {
+  display: block;
+  padding: 8px 10px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #1A1520;
+  line-height: 1.4;
+}
+
+/* ── Interactive fields: shared notebook-line background ─ */
+/*
+  Notebook lines use repeating-linear-gradient aligned to line-height.
+  background-attachment: local keeps the lines aligned when the textarea scrolls.
+  -webkit-print-color-adjust / print-color-adjust forces lines to print.
+  Lines are NEVER hidden — only text color is toggled in print-blank mode.
+*/
+textarea[data-field-id] {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  font-size: 13px;
+  color: #1A1520;
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 27px,
+    #C0B8B0 27px,
+    #C0B8B0 28px
+  );
+  background-size: 100% 28px;
+  background-attachment: local;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  line-height: 28px;
+  padding: 0 8px;
+  overflow: hidden;
+  min-height: 28px;
+}
+
+textarea[data-field-id]:focus {
+  background-color: rgba(44, 14, 32, 0.03);
+  outline: none;
+}
+
+/* Table cell textareas: 2-line minimum */
+.ficha-table td textarea[data-field-id] {
+  min-height: 56px;
+}
+
+/* Long-form answer textareas */
+textarea.answer-textarea {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* Col-box textareas */
+textarea.col-box-textarea {
+  width: 100%;
+  min-height: 84px; /* 3 lines */
+}
+
+/* Mission textareas */
+textarea.mission-textarea {
+  width: 100%;
+  min-height: 112px; /* 4 lines */
+}
+
+textarea.mission-textarea-lg {
+  width: 100%;
+  min-height: 280px; /* 10 lines */
+}
+
+/* Phrase-complete textarea */
+textarea.phrase-textarea {
+  width: 100%;
+  min-height: 56px;
+  margin-top: 6px;
+}
+
+/* ── Single-line inputs ──────────────────────────── */
+input[data-field-id]:not([type="checkbox"]) {
+  border: none;
+  border-bottom: 1px solid #C0B8B0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  color: #1A1520;
+  outline: none;
+  padding: 2px 4px;
+  line-height: 24px;
+  height: 28px;
+}
+
+input[data-field-id]:not([type="checkbox"]):focus {
+  border-bottom-color: #2C0E20;
+}
+
+.arrow-chain-input {
+  flex: 1;
+  min-width: 80px;
+}
+
+input.inline-country {
+  width: 200px;
+}
+
+/* ── Checkbox inputs ─────────────────────────────── */
+input[type="checkbox"][data-field-id] {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #786050;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #2C0E20;
+}
+
+/* ── Arrow chain ─────────────────────────────────── */
+.arrow-chain {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.arrow-chain-box {
+  padding: 6px 10px;
+  border: 1px solid #C0B8B0;
+  border-radius: 6px;
+  background: #F8F5EE;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.arrow-sym {
+  color: #786050;
+  font-weight: 700;
+}
+
+/* ── Checkbox list ───────────────────────────────── */
+.checkbox-list {
+  list-style: none;
+  margin: 8px 0;
+}
+
+.checkbox-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #2A2430;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* ── Two-column grid ─────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.col-box {
+  border: 1px solid #D0C8BC;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.col-box-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #786050;
+  margin-bottom: 6px;
+}
+
+/* ── Phrase to complete ──────────────────────────── */
+.phrase-complete {
+  background: #F0EBE0;
+  border: 1px solid #D0C8BC;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 10px 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #3A3040;
+}
+
+.phrase-complete .phrase-prefix {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* ── Mission / challenge blocks ──────────────────── */
+.mission-block {
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 12px;
+}
+
+.mission-enzo {
+  background: #EAF4EE;
+  border: 1px solid rgba(0, 155, 58, 0.2);
+}
+
+.mission-felipe {
+  background: #F4EEF2;
+  border: 1px solid rgba(92, 36, 69, 0.2);
+}
+
+.mission-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.mission-enzo .mission-label { color: #007A2E; }
+.mission-felipe .mission-label { color: #5C2445; }
+
+.mission-block p {
+  font-size: 13px;
+  color: #2A2430;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.mission-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.mission-input-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: #786050;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+.mission-input-row input[data-field-id] {
+  flex: 1;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.ficha-footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #D0C8BC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #B0A8A0;
+}
+
+/* ═══════════════════════════════════════════════════
+   PRINT — normal (com respostas)
+   Valores digitados aparecem; linhas de caderno mantidas.
+   ═══════════════════════════════════════════════════ */
+@media print {
+  body {
+    background: white;
+    padding: 10mm 12mm 12mm;
+    max-width: none;
+    font-size: 11pt;
+    color: #000;
+  }
+
+  .screen-bar { display: none !important; }
+  #ficha-save-status { display: none !important; }
+
+  .ficha-header { margin-bottom: 14px; padding-bottom: 10px; }
+  .ficha-title { font-size: 15pt; }
+  .ficha-section { margin-bottom: 18px; page-break-inside: avoid; }
+  .ficha-section-title { font-size: 9pt; padding: 5px 10px; }
+  .ficha-table { font-size: 9.5pt; }
+  .ficha-footer { margin-top: 16px; font-size: 8pt; }
+  a { text-decoration: none; }
+
+  /* Linhas do caderno: forçar impressão de background */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Textareas: expandem para mostrar todo o conteúdo */
+  textarea[data-field-id] {
+    height: auto;
+    overflow: visible;
+    resize: none;
+  }
+
+  /* Inputs: manter linha inferior */
+  input[data-field-id]:not([type="checkbox"]) {
+    border-bottom: 1px solid #C0B8B0;
+  }
+
+  input.ficha-meta-input {
+    border-bottom: 1px solid #B0A8A0;
+  }
+
+  @page { margin: 12mm; size: A4; }
+}
+
+/* ═══════════════════════════════════════════════════
+   PRINT — em branco (body.print-blank)
+   Oculta APENAS os valores; linhas e estrutura permanecem.
+   A classe .print-blank é adicionada/removida pelo JS
+   via window.print() + afterprint event.
+   ═══════════════════════════════════════════════════ */
+@media print {
+  body.print-blank textarea[data-field-id] {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  body.print-blank input[data-field-id]:not([type="checkbox"]) {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  body.print-blank input.ficha-meta-input {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  body.print-blank input[type="checkbox"][data-field-id] {
+    /* Visualmente presente mas sem estado marcado */
+    accent-color: transparent;
+    opacity: 0.25;
+  }
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  body { padding: 20px 16px 48px; }
+  .two-col { grid-template-columns: 1fr; }
+  .arrow-chain { flex-direction: column; align-items: stretch; }
+  .arrow-chain-input { width: 100%; }
+  .ficha-actions { gap: 6px; }
+  .print-btn, .action-btn { font-size: 11px; padding: 7px 12px; }
+}
