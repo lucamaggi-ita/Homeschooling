@@ -45,6 +45,8 @@ Cada semana terá, em regra, dois arquivos entregues pelo ChatGPT e aprovados po
 - `SEMANA_XX_CONTEUDO_SITE.md` — lição completa para o site
 - `SEMANA_XX_FICHA_IMPRIMIVEL.md` — ficha curta para atividades presenciais
 
+Quando aprovada, cada semana publicada também terá uma cover ilustrada em `assets/capas/`. A cover é um ativo visual do curso; ela não substitui o conteúdo Markdown e Claude não deve escolhê-la, substituí-la ou gerar uma alternativa sem autorização.
+
 ### Frontmatter obrigatório
 
 Todo Markdown semanal deve ter frontmatter YAML. Os nomes, valores e tipos dos campos são dados editoriais definidos pelo autor; Claude deve preservá-los exatamente como recebidos, sem impor enumerações, converter formatos ou normalizá-los silenciosamente.
@@ -88,12 +90,15 @@ Tratamento de blocos não reconhecidos:
 - O Atlas é uma seção separada do site, não embutida nas lições.
 - As lições **fazem referência** ao Atlas (link ou mapa contextual), mas não o duplicam.
 - O conteúdo do Atlas é mantido independentemente das semanas.
+- Um link, card ou placeholder não constitui um Atlas implementado. Para uma semana ser estudável, os mapas especificamente solicitados por ela devem estar disponíveis no Atlas.
+- Para a Semana 1, o Atlas v1 deve permitir consultar ao menos mapa-múndi com nomes, mapa-múndi mudo e mapas com nomes de Europa, África, Ásia e América do Sul.
 
 ### Vídeos
 
 - Vídeos devem ser incorporáveis (iframe ou player nativo do YouTube).
 - Cada bloco `:::video` deve conter: título do vídeo, URL, objetivo pedagógico e pelo menos uma pergunta pós-vídeo.
 - Claude não escolhe vídeos; apenas integra os vídeos definidos no Markdown aprovado.
+- Os canais atualmente aprovados como fontes preferenciais são **BBC News Brasil** e **CNN Brasil / CNN Prime Time**. Eles não dispensam aprovação editorial por vídeo.
 
 ### Ficha imprimível
 
@@ -112,6 +117,7 @@ O site é uma **ferramenta de estudo**, não uma página de marketing.
 - Navegação clara por semanas com progresso visível
 - Acessibilidade (contraste, semântica HTML, navegação por teclado)
 - Estabilidade visual — nada que pise no conteúdo ou quebre o layout entre semanas
+- Identidade visual atual: paleta inspirada em açaí e nas cores do Brasil; sidebar e Biblioteca podem usar açaí escuro, enquanto áreas de estudo devem conservar superfícies claras e coloridas para leitura confortável.
 
 **Vedações:**
 - Visual infantil ou interface excessivamente decorativa
@@ -142,6 +148,17 @@ O site é uma **ferramenta de estudo**, não uma página de marketing.
 - [ ] Layout responsivo testado em viewport mobile e desktop
 - [ ] Ficha imprimível renderiza corretamente
 
+### Critério de implementação de uma semana
+
+Uma semana **não está implementada** quando existe apenas uma card, resumo ou link na home. Ela só está implementada quando:
+
+- a página da lição renderiza integralmente todas as seções do Markdown aprovado;
+- todos os blocos semânticos são visíveis e funcionais;
+- os vídeos aprovados estão integrados com título, objetivo e perguntas;
+- os links para Atlas e ficha funcionam;
+- a ficha abre e imprime corretamente;
+- desktop e celular foram verificados.
+
 ---
 
 ## 8. Memória e mudanças futuras
@@ -169,7 +186,10 @@ O site é uma **ferramenta de estudo**, não uma página de marketing.
 ├── assets/
 │   ├── css/
 │   ├── js/
-│   └── img/
+│   ├── img/
+│   └── capas/
+│       ├── semana-01.webp
+│       └── ...
 └── conteudo/
     ├── Semana_01/
     │   ├── SEMANA_01_CONTEUDO_SITE.md

@@ -26,26 +26,34 @@
     /* ── Design tokens ───────────── */
     :root {
       --sb-w: 220px;
-      --sb-bg: #0A0C12;
-      --sb-border: #1C2030;
-      --accent-gold: #E8B84B;
+      /* Identidade visual aprovada — Brasil & Açaí */
+      --br-verde: #009B3A;
+      --br-amarelo: #FFDF00;
+      --br-azul: #002776;
+      --acai-dark: #2C0E20;
+      --acai-medium: #3B132B;
+      --acai-light: #5C2445;
+
+      --sb-bg: #2C0E20;
+      --sb-border: #3D182F;
+      --accent-gold: #FFDF00;
       --accent-coral: #E8604B;
-      --accent-teal: #3DC6B4;
+      --accent-teal: #009B3A;
       --accent-violet: #8B6FE8;
       --accent-sky: #4BA8E8;
-      --page-bg: #FAF7F0;
-      --section-alt: #0D0F1C;
-      --section-world: #E3F2EE;
-      --card-bg: #1A1E2E;
-      --card-border: #252A3E;
-      --text-primary: #F0EBE0;
-      --text-muted: #8B8FA8;
+      --page-bg: #FAF9F5;
+      --section-alt: #3B132B;
+      --section-world: #EAF4EE;
+      --card-bg: #3B132B;
+      --card-border: #4D1F3B;
+      --text-primary: #FFF9FC;
+      --text-muted: #A88B9E;
       --radius-card: 16px;
       --radius-lg: 20px;
       /* light-section text */
-      --lt-text: #1A1520;
-      --lt-muted: #5E5870;
-      --lt-faint: #8E8AA0;
+      --lt-text: #2C0E20;
+      --lt-muted: #5C4A54;
+      --lt-faint: #8C7884;
     }
 
     /* ── Layout ──────────────────── */
@@ -79,7 +87,7 @@
 
     .sb-logo {
       width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-coral) 100%);
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-teal) 100%);
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       font-size: 18px; font-weight: 800;
@@ -122,7 +130,7 @@
       color: var(--text-primary);
     }
     .sb-nav-item.active {
-      background: rgba(232,184,75,0.12);
+      background: rgba(255,223,0,0.12);
       color: var(--accent-gold);
     }
     .sb-nav-item.active::before {
@@ -142,7 +150,7 @@
       flex-shrink: 0;
     }
     .sb-nav-item.active .sb-nav-icon {
-      background: rgba(232,184,75,0.15);
+      background: rgba(255,223,0,0.15);
     }
     .sb-nav-item:hover:not(.active) .sb-nav-icon {
       background: rgba(255,255,255,0.06);
@@ -150,7 +158,7 @@
 
     .sb-section-label {
       font-size: 10px; font-weight: 700;
-      color: #3C4060;
+      color: #6C445E;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       padding: 16px 12px 6px;
@@ -162,7 +170,7 @@
       display: flex; flex-direction: column; gap: 8px;
     }
     .sb-aluno-label {
-      font-size: 10px; color: #3C4060;
+      font-size: 10px; color: #6C445E;
       text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
     }
     .sb-alunos-row {
@@ -176,18 +184,18 @@
       flex: 1; justify-content: center;
     }
     .sb-aluno-chip.enzo {
-      background: rgba(61,198,180,0.12);
-      color: var(--accent-teal);
+      background: rgba(0,155,58,0.15);
+      color: #39D072;
     }
     .sb-aluno-chip.felipe {
-      background: rgba(139,111,232,0.12);
-      color: var(--accent-violet);
+      background: rgba(255,223,0,0.12);
+      color: #FFDF00;
     }
     .sb-aluno-dot {
       width: 6px; height: 6px; border-radius: 50%;
     }
-    .enzo .sb-aluno-dot { background: var(--accent-teal); }
-    .felipe .sb-aluno-dot { background: var(--accent-violet); }
+    .enzo .sb-aluno-dot { background: #39D072; }
+    .felipe .sb-aluno-dot { background: #FFDF00; }
 
     /* ── Sections ────────────────── */
     .section {
@@ -212,7 +220,7 @@
       position: absolute;
       top: -100px; right: -100px;
       width: 480px; height: 480px;
-      background: radial-gradient(circle, rgba(61,198,180,0.12) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(0,155,58,0.12) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -338,25 +346,25 @@
       text-transform: uppercase; letter-spacing: 0.06em;
     }
     .chip-atlas {
-      background: rgba(75,168,232,0.12);
-      color: var(--accent-sky);
-      border: 1px solid rgba(75,168,232,0.25);
+      background: rgba(0,39,118,0.1);
+      color: #4A78D8;
+      border: 1px solid rgba(0,39,118,0.2);
     }
     .chip-ficha {
-      background: rgba(139,111,232,0.12);
-      color: var(--accent-violet);
-      border: 1px solid rgba(139,111,232,0.25);
+      background: rgba(92,36,69,0.1);
+      color: #9E5878;
+      border: 1px solid rgba(92,36,69,0.2);
     }
     .chip-status {
-      background: rgba(61,198,180,0.1);
+      background: rgba(0,155,58,0.1);
       color: var(--accent-teal);
-      border: 1px solid rgba(61,198,180,0.2);
+      border: 1px solid rgba(0,155,58,0.2);
     }
 
     .week-cta {
       margin-top: auto;
       background: var(--accent-gold);
-      color: #0A0C12;
+      color: #2C0E20;
       padding: 11px 18px;
       border-radius: 10px;
       font-size: 13px; font-weight: 700;
@@ -384,20 +392,20 @@
     }
 
     .disc-card.conceito {
-      background: #F2EFFE;
-      border-color: rgba(139,111,232,0.28);
+      background: #F4EEF2;
+      border-color: rgba(92,36,69,0.15);
     }
     .disc-card.missoes {
-      background: #E8FAF5;
-      border-color: rgba(61,198,180,0.32);
+      background: #EAF4EE;
+      border-color: rgba(0,155,58,0.18);
     }
     .disc-card.conversa {
-      background: #FEF7E6;
-      border-color: rgba(232,184,75,0.35);
+      background: #FFFCEB;
+      border-color: rgba(255,223,0,0.4);
     }
     .disc-card.ficha {
-      background: #E8F3FD;
-      border-color: rgba(75,168,232,0.28);
+      background: #EEF3FA;
+      border-color: rgba(0,39,118,0.12);
     }
 
     .disc-icon-wrap {
@@ -407,10 +415,10 @@
       font-size: 20px;
       flex-shrink: 0;
     }
-    .conceito .disc-icon-wrap { background: rgba(139,111,232,0.16); }
-    .missoes .disc-icon-wrap  { background: rgba(61,198,180,0.16); }
-    .conversa .disc-icon-wrap { background: rgba(232,184,75,0.18); }
-    .ficha .disc-icon-wrap    { background: rgba(75,168,232,0.15); }
+    .conceito .disc-icon-wrap { background: rgba(92,36,69,0.12); }
+    .missoes .disc-icon-wrap  { background: rgba(0,155,58,0.12); }
+    .conversa .disc-icon-wrap { background: rgba(255,223,0,0.2); }
+    .ficha .disc-icon-wrap    { background: rgba(0,39,118,0.08); }
 
     .disc-body { flex: 1; min-width: 0; }
 
@@ -419,10 +427,10 @@
       text-transform: uppercase; letter-spacing: 0.12em;
       margin-bottom: 4px;
     }
-    .conceito .disc-label { color: #6A50C8; }
-    .missoes  .disc-label { color: #1E9880; }
-    .conversa .disc-label { color: #B87820; }
-    .ficha    .disc-label { color: #2878C8; }
+    .conceito .disc-label { color: #5C2445; }
+    .missoes  .disc-label { color: #007A2E; }
+    .conversa .disc-label { color: #8A7300; }
+    .ficha    .disc-label { color: #002776; }
 
     .disc-title {
       font-size: 14px; font-weight: 700;
@@ -468,12 +476,12 @@
 
     .world-card.atlas {
       background: #FFFFFF;
-      border-color: rgba(61,198,180,0.35);
+      border-color: rgba(0,155,58,0.2);
       grid-column: span 2;
     }
     .world-card.materiais {
-      background: #F8F4FF;
-      border-color: rgba(139,111,232,0.3);
+      background: #F6EFF3;
+      border-color: rgba(92,36,69,0.15);
     }
 
     .world-card-icon {
@@ -481,12 +489,12 @@
     }
     .world-card-title {
       font-size: 17px; font-weight: 800;
-      color: #1A2830;
+      color: #2C0E20;
       margin-bottom: 6px;
     }
     .world-card-desc {
       font-size: 13px;
-      color: #486070;
+      color: #5C4A54;
       line-height: 1.5;
     }
 
@@ -498,19 +506,19 @@
       padding: 5px 12px;
       border-radius: 20px;
       font-size: 11px; font-weight: 600;
-      background: rgba(28,130,160,0.1);
-      color: #1A6080;
-      border: 1px solid rgba(28,130,160,0.22);
+      background: rgba(0,155,58,0.08);
+      color: #006624;
+      border: 1px solid rgba(0,155,58,0.15);
     }
 
     .world-cta {
       display: inline-flex; align-items: center; gap: 6px;
       margin-top: 16px;
       font-size: 12px; font-weight: 700;
-      color: #1A6888;
+      color: #007A2E;
       text-transform: uppercase; letter-spacing: 0.08em;
     }
-    .world-card.materiais .world-cta { color: #6050B8; }
+    .world-card.materiais .world-cta { color: #5C2445; }
 
     /* ── Section 3 — Library ─────── */
     .library-grid {

@@ -239,11 +239,12 @@ Para cada país, anotem:
 
 ## Vídeos recomendados
 
-Os vídeos entram depois da leitura, não antes. Assistam a apenas um por encontro, façam pausas e discordem quando houver motivo. Os links abaixo vieram da lição-piloto e precisam ser incorporados por Claude no componente de vídeo.
+Os vídeos entram depois da leitura, não antes. Assistam a apenas um por encontro, façam pausas e discordem quando houver motivo. Os dois vídeos abaixo foram aprovados para esta semana e devem ser incorporados por Claude no componente de vídeo.
 
 :::video
 titulo: "Como alguns países enriqueceram e outros continuaram pobres"
 url: "https://www.youtube.com/watch?v=h2upDRvnKlI"
+canal: "BBC News Brasil"
 momento: "Depois do Capítulo 2"
 objetivo: "Comparar explicações históricas e geográficas, identificando o que o vídeo deixa de fora."
 perguntas:
@@ -253,14 +254,15 @@ perguntas:
 :::
 
 :::video
-titulo: "Por que alguns países são ricos e outros pobres?"
-url: "https://www.youtube.com/watch?v=_Inxi5DXI5k"
+titulo: "Entenda por que o Brasil não cresce como outros países"
+url: "https://www.youtube.com/watch?v=eX2SbygLWdQ"
+canal: "CNN Brasil / CNN Prime Time"
 momento: "Depois do Capítulo 3"
-objetivo: "Retomar produtividade, instituições e recursos naturais em uma linguagem visual."
+objetivo: "Relacionar produtividade, infraestrutura e decisões de longo prazo ao caso brasileiro."
 perguntas:
-  - "O vídeo diferencia riqueza total de qualidade de vida?"
-  - "Que relação ele faz entre instituições e confiança?"
-  - "Qual exemplo brasileiro você acrescentaria?"
+  - "Que obstáculos ao crescimento brasileiro aparecem no vídeo?"
+  - "Quais deles também foram estudados nesta semana?"
+  - "O vídeo apresenta uma causa única ou uma combinação de fatores?"
 :::
 
 ## Atividades

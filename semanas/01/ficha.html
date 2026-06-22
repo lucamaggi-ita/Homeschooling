@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha Semana 1 — Países ricos e países pobres · Cultura Geral Moderna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; }
+    body {
+      font-family: 'Sora', system-ui, sans-serif;
+      background: #FAF7F0;
+      color: #1A1520;
+      padding: 32px 24px 48px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Screen-only nav bar ──────────────── */
+    .screen-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #E0DBD0;
+    }
+    .screen-bar-back {
+      font-size: 13px; font-weight: 600;
+      color: #5E5870;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .screen-bar-back:hover { color: #1A1520; }
+    .print-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      background: #2C0E20;
+      color: #FAF7F0;
+      font-size: 12px; font-weight: 700;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: opacity 0.15s;
+    }
+    .print-btn:hover { opacity: 0.85; }
+
+    /* ── Ficha header ─────────────────────── */
+    .ficha-header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #1A1520;
+    }
+    .ficha-eyebrow {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: #786050;
+      margin-bottom: 6px;
+    }
+    .ficha-title {
+      font-size: 20px; font-weight: 800;
+      color: #1A1520;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .ficha-meta {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      font-size: 12px; color: #5E5870;
+    }
+    .ficha-meta-field {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .ficha-meta-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 10px; letter-spacing: 0.08em;
+    }
+    .ficha-meta-line {
+      display: inline-block;
+      width: 140px;
+      border-bottom: 1px solid #B0A8A0;
+    }
+
+    /* ── Section ──────────────────────────── */
+    .ficha-section {
+      margin-bottom: 28px;
+    }
+    .ficha-section-title {
+      font-size: 13px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: #1A1520;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      background: #2C0E20;
+      color: #FAF9F5;
+      border-radius: 4px;
+    }
+
+    /* ── Tables ───────────────────────────── */
+    .ficha-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    .ficha-table th {
+      text-align: left;
+      padding: 8px 10px;
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      background: #F0EBE0;
+      border: 1px solid #D0C8BC;
+      color: #5E5870;
+    }
+    .ficha-table td {
+      padding: 0;
+      border: 1px solid #D0C8BC;
+      vertical-align: top;
+    }
+    .ficha-table td .fill-area {
+      display: block;
+      width: 100%;
+      min-height: 44px;
+      padding: 6px 8px;
+    }
+
+    /* ── Answer lines ─────────────────────── */
+    .answer-lines {
+      margin: 8px 0;
+    }
+    .answer-line {
+      border-bottom: 1px solid #C0B8B0;
+      min-height: 28px;
+      margin-bottom: 6px;
+    }
+    .answer-line-sm {
+      border-bottom: 1px solid #C0B8B0;
+      min-height: 22px;
+      margin-bottom: 5px;
+    }
+
+    /* ── Arrow chain ──────────────────────── */
+    .arrow-chain {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 10px 0;
+      font-size: 12px;
+    }
+    .arrow-chain-box {
+      padding: 6px 10px;
+      border: 1px solid #C0B8B0;
+      border-radius: 6px;
+      background: #F8F5EE;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .arrow-chain-fill {
+      flex: 1;
+      min-width: 80px;
+      border-bottom: 1px solid #C0B8B0;
+      height: 28px;
+    }
+    .arrow-sym {
+      color: #786050;
+      font-weight: 700;
+    }
+
+    /* ── Checkbox list ────────────────────── */
+    .checkbox-list {
+      list-style: none;
+      margin: 8px 0;
+    }
+    .checkbox-list li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13.5px;
+      color: #2A2430;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .checkbox {
+      width: 14px; height: 14px;
+      border: 1.5px solid #786050;
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── Two-column grid ──────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .col-box {
+      border: 1px solid #D0C8BC;
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+    .col-box-label {
+      font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: #786050;
+      margin-bottom: 6px;
+    }
+
+    /* ── Phrase to complete ───────────────── */
+    .phrase-complete {
+      background: #F0EBE0;
+      border: 1px solid #D0C8BC;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 10px 0;
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #3A3040;
+    }
+    .phrase-complete .blank-line {
+      display: block;
+      border-bottom: 1px solid #B0A8A0;
+      margin: 4px 0;
+      min-height: 26px;
+    }
+
+    /* ── Mission / challenge blocks ───────── */
+    .mission-block {
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+    .mission-enzo {
+      background: #EAF4EE;
+      border: 1px solid rgba(0,155,58,0.2);
+    }
+    .mission-felipe {
+      background: #F4EEF2;
+      border: 1px solid rgba(92,36,69,0.2);
+    }
+    .mission-label {
+      font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .mission-enzo .mission-label { color: #007A2E; }
+    .mission-felipe .mission-label { color: #5C2445; }
+    .mission-block p {
+      font-size: 13px;
+      color: #2A2430;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    /* ── Footer ───────────────────────────── */
+    .ficha-footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid #D0C8BC;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 11px; color: #B0A8A0;
+    }
+
+    /* ── Print styles ─────────────────────── */
+    @media print {
+      body {
+        background: white;
+        padding: 10mm 12mm 12mm;
+        max-width: none;
+        font-size: 11pt;
+      }
+      .screen-bar { display: none !important; }
+      .ficha-header { margin-bottom: 14px; padding-bottom: 10px; }
+      .ficha-title { font-size: 15pt; }
+      .ficha-section { margin-bottom: 18px; page-break-inside: avoid; }
+      .ficha-section-title { font-size: 9pt; padding: 5px 10px; }
+      .ficha-table { font-size: 9.5pt; }
+      .ficha-table td .fill-area { min-height: 36px; }
+      .answer-line { min-height: 24px; }
+      .ficha-footer { margin-top: 16px; font-size: 8pt; }
+      a { text-decoration: none; }
+      @page { margin: 12mm; size: A4; }
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 20px 16px 48px; }
+      .two-col { grid-template-columns: 1fr; }
+      .arrow-chain { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Screen nav (hidden on print) -->
+<div class="screen-bar">
+  <a href="index.html" class="screen-bar-back">← Voltar à lição</a>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimir ficha</button>
+</div>
+
+<!-- ── Ficha header ──────────────────────── -->
+<header class="ficha-header">
+  <div class="ficha-eyebrow">Cultura Geral Moderna · Semana 1</div>
+  <h1 class="ficha-title">Ficha de investigação — Países ricos e países pobres</h1>
+  <div class="ficha-meta">
+    <div class="ficha-meta-field">
+      <span class="ficha-meta-label">Nome(s):</span>
+      <span class="ficha-meta-line"></span>
+    </div>
+    <div class="ficha-meta-field">
+      <span class="ficha-meta-label">Data:</span>
+      <span class="ficha-meta-line" style="width:100px"></span>
+    </div>
+  </div>
+</header>
+
+<!-- ── 1. Quatro lentes ──────────────────── -->
+<section class="ficha-section">
+  <div class="ficha-section-title">1. Quatro lentes para olhar um país</div>
+  <p style="font-size:13px; color:#5E5870; margin-bottom:8px;">Complete com suas palavras.</p>
+  <table class="ficha-table">
+    <thead>
+      <tr>
+        <th style="width:22%">Ideia</th>
+        <th>O que ela mede ou pergunta?</th>
+        <th>Por que não basta olhar só para ela?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="fill-area" style="font-weight:700">PIB</div></td>
+        <td><div class="fill-area"></div></td>
+        <td><div class="fill-area"></div></td>
+      </tr>
+      <tr>
+        <td><div class="fill-area" style="font-weight:700">PIB per capita</div></td>
+        <td><div class="fill-area"></div></td>
+        <td><div class="fill-area"></div></td>
+      </tr>
+      <tr>
+        <td><div class="fill-area" style="font-weight:700">Desigualdade</div></td>
+        <td><div class="fill-area"></div></td>
+        <td><div class="fill-area"></div></td>
+      </tr>
+      <tr>
+        <td><div class="fill-area" style="font-weight:700">Qualidade de vida</div></td>
+        <td><div class="fill-area"></div></td>
+        <td><div class="fill-area"></div></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── 2. O mapa ajuda, mas não decide ────── -->
+<section class="ficha-section">
+  <div class="ficha-section-title">2. O mapa ajuda, mas não decide</div>
+  <p style="font-size:13px; color:#5E5870; margin-bottom:8px;">Escolha um país: Brasil, Noruega, Coreia do Sul ou Nigéria.</p>
+  <p style="font-size:13.5px; margin-bottom:10px;"><strong>País escolhido:</strong> <span style="display:inline-block; width:200px; border-bottom:1px solid #C0B8B0;"></span></p>
+  <table class="ficha-table">
+    <thead>
+      <tr>
+        <th style="width:45%">O que observei no Atlas</th>
+        <th>Minha resposta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="fill-area">Continente e acesso ao mar</div></td>
+        <td><div class="fill-area"></div></td>
+      </tr>
+      <tr>
+        <td><div class="fill-area">Uma possível vantagem geográfica</div></td>
+        <td><div class="fill-area"></div></td>
+      </tr>
+      <tr>
+        <td><div class="fill-area">Uma possível dificuldade geográfica</div></td>
+        <td><div class="fill-area"></div></td>
+      </tr>
+      <tr>
+        <td><div class="fill-area">Uma pergunta que o mapa não responde</div></td>
+        <td><div class="fill-area"></div></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── 3. Do cacau ao chocolate ────────────── -->
+<section class="ficha-section">
+  <div class="ficha-section-title">3. Do cacau ao chocolate</div>
+  <p style="font-size:13px; color:#5E5870; margin-bottom:10px;">Preencha as setas com uma ação que aumenta o valor do produto.</p>
+  <div class="arrow-chain">
+    <div class="arrow-chain-box">Cacau cultivado</div>
+    <div class="arrow-sym">→</div>
+    <div class="arrow-chain-fill"></div>
+    <div class="arrow-sym">→</div>
+    <div class="arrow-chain-fill"></div>
+    <div class="arrow-sym">→</div>
+    <div class="arrow-chain-fill"></div>
+    <div class="arrow-sym">→</div>
+    <div class="arrow-chain-box">Chocolate vendido</div>
+  </div>
+  <p style="font-size:13px; margin: 12px 0 6px;"><strong>Em qual etapa pode haver mais conhecimento, tecnologia ou marca? Por quê?</strong></p>
+  <div class="answer-lines">
+    <div class="answer-line"></div>
+    <div class="answer-line"></div>
+  </div>
+</section>
+
+<!-- ── 4. Teste do contraexemplo ───────────── -->
+<section class="ficha-section">
+  <div class="ficha-section-title">4. Teste do contraexemplo</div>
+  <p style="font-size:13px; color:#5E5870; margin-bottom:10px;">Escolha uma frase:</p>
+  <ul class="checkbox-list">
+    <li><div class="checkbox"></div> "País com petróleo é rico."</li>
+    <li><div class="checkbox"></div> "País tropical é pobre."</li>
+    <li><div class="checkbox"></div> "País pequeno é fácil de organizar."</li>
+  </ul>
+  <p style="font-size:13px; margin: 12px 0 6px;"><strong>Um exemplo que complica a frase:</strong></p>
+  <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+  <p style="font-size:13px; margin: 12px 0 6px;"><strong>Minha versão mais cuidadosa da frase:</strong></p>
+  <div class="answer-lines"><div class="answer-line"></div><div class="answer-line"></div></div>
+</section>
+
+<!-- ── 5. Brasil: potencial e desafio ──────── -->
+<section class="ficha-section">
+  <div class="ficha-section-title">5. Brasil — potencial e desafio</div>
+  <div class="two-col">
+    <div class="col-box">
+      <div class="col-box-label">Uma força do Brasil</div>
+      <div class="answer-line-sm"></div>
+      <div class="answer-line-sm"></div>
+      <div class="answer-line-sm"></div>
+    </div>
+    <div class="col-box">
+      <div class="col-box-label">Um obstáculo para ampliar oportunidades</div>
+      <div class="answer-line-sm"></div>
+      <div class="answer-line-sm"></div>
+      <div class="answer-line-sm"></div>
+    </div>
+  </div>
+  <div class="phrase-complete" style="margin-top:14px;">
+    <p style="font-size:12px; font-weight:700; margin-bottom:6px;">Complete:</p>
+    <span>O Brasil poderá ampliar as oportunidades de sua população se conseguir</span>
+    <span class="blank-line"></span>
+    <span class="blank-line"></span>
+  </div>
+</section>
+
+<!-- ── 6. Missões finais ──────────────────── -->
+<section class="ficha-section">
+  <div class="ficha-section-title">6. Missões finais</div>
+
+  <div class="mission-block mission-enzo">
+    <div class="mission-label">Enzo · 11 anos · Missão</div>
+    <p>Desenhe três setas ligando uma condição a uma consequência.</p>
+    <p style="font-size:12px; color:#1A7868;"><em>Exemplo: estrada boa → transporte mais rápido → produto chega ao mercado</em></p>
+    <div class="answer-lines">
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+  </div>
+
+  <div class="mission-block mission-felipe" style="margin-top:12px;">
+    <div class="mission-label">Felipe · 15 anos · Desafio</div>
+    <p>Escreva de 8 a 12 linhas: <strong>Por que recursos naturais, sozinhos, não garantem desenvolvimento?</strong></p>
+    <div class="answer-lines">
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────── -->
+<footer class="ficha-footer">
+  <span>Cultura Geral Moderna · Semana 1</span>
+  <span>1–2 páginas · para uso em família</span>
+</footer>
+
+</body>
+</html>
