@@ -99,12 +99,22 @@ Tratamento de blocos não reconhecidos:
 - Cada bloco `:::video` deve conter: título do vídeo, URL, objetivo pedagógico e pelo menos uma pergunta pós-vídeo.
 - Claude não escolhe vídeos; apenas integra os vídeos definidos no Markdown aprovado.
 - Os canais atualmente aprovados como fontes preferenciais são **BBC News Brasil** e **CNN Brasil / CNN Prime Time**. Eles não dispensam aprovação editorial por vídeo.
+- Fluxo obrigatório: ChatGPT propõe vídeos separadamente; Luca aprova explicitamente; somente depois o URL e seus dados podem entrar em um Markdown semanal. Não inserir vídeos em rascunhos de lição como se já estivessem aprovados.
 
 ### Ficha imprimível
 
 - A ficha é curta, focada em atividades para preencher.
 - Não deve repetir textos longos da lição — apenas referências, perguntas e espaços de resposta.
 - Deve ser renderizável como página para impressão (`@media print`) com CSS adequado.
+
+### Fichas interativas
+
+- Os arquivos Markdown continuam sendo a única fonte de verdade: a estrutura HTML interativa e seus campos devem derivar de marcadores ou blocos semânticos do Markdown, nunca de conversões manuais feitas semana a semana.
+- Cada campo interativo deve usar elementos HTML reais e acessíveis (`form`, `label`, `input`, `textarea`, `input type="checkbox"` quando aplicável) e ter um `data-field-id` determinístico, legível e estável entre atualizações da mesma ficha. O identificador deve expressar a semana, o módulo e o nome semântico do campo; não usar contadores aleatórios ou dependentes da ordem de renderização.
+- As respostas podem ser salvas somente no navegador, em chave `localStorage` estável e versionada por ficha, por exemplo `ficha:v1:semana-01`. Uma alteração incompatível exige uma nova versão da chave ou uma migração explícita; nunca pode apagar respostas silenciosamente. Esse armazenamento não é backup nem sincronização entre dispositivos.
+- `Exportar respostas` deve baixar um JSON que contenha ao menos a versão, a semana e as respostas. `Limpar respostas` deve pedir confirmação antes de apagar os dados locais.
+- A ação `Imprimir em branco` deve ocultar somente os valores preenchidos. Campos, rótulos, linhas e espaços de escrita permanecem visíveis na impressão; após imprimir, a tela deve restaurar imediatamente as respostas do aluno.
+- A ficha deve funcionar em ambiente HTTP, incluindo GitHub Pages. O uso direto por `file://` não é um requisito suportado.
 
 ---
 
