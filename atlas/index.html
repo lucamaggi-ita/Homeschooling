@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas do Mundo · Cultura Geral Moderna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/lesson.css">
+  <link rel="stylesheet" href="../assets/css/atlas.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════ SIDEBAR ═══════════════════════════ -->
+<aside class="sidebar" aria-label="Navegação do Atlas">
+
+  <div class="sb-brand">
+    <div class="sb-logo">C</div>
+    <div class="sb-brand-text">
+      <div class="title">Cultura Geral</div>
+      <div class="subtitle">Moderna · S1 de 2026</div>
+    </div>
+  </div>
+
+  <a href="../index.html" class="sb-back">← Voltar ao início</a>
+
+  <nav class="sb-toc" aria-label="Seções do Atlas">
+
+    <div class="sb-toc-label">Atlas</div>
+    <a href="#sobre"    class="sb-toc-link">Para que serve</a>
+    <a href="#como-usar" class="sb-toc-link">Como usar</a>
+
+    <div class="sb-toc-label">Mapas</div>
+    <a href="#atlas-mapas" data-goto-map="mapa-mundi-nomes"     class="sb-toc-link">Mundo com nomes</a>
+    <a href="#atlas-mapas" data-goto-map="mapa-mundi-mudo"      class="sb-toc-link">Mundo mudo</a>
+    <a href="#atlas-mapas" data-goto-map="europa-nomes"         class="sb-toc-link">Europa</a>
+    <a href="#atlas-mapas" data-goto-map="africa-nomes"         class="sb-toc-link">África</a>
+    <a href="#atlas-mapas" data-goto-map="asia-nomes"           class="sb-toc-link">Ásia</a>
+    <a href="#atlas-mapas" data-goto-map="america-do-sul-nomes" class="sb-toc-link">América do Sul</a>
+
+    <div class="sb-toc-label">Mais</div>
+    <a href="#comparar"  class="sb-toc-link">Comparar os casos</a>
+    <a href="../semanas/01/index.html" class="sb-toc-link">← Semana 1</a>
+
+  </nav>
+
+  <div class="sb-alunos">
+    <div class="sb-aluno-label">Alunos</div>
+    <div class="sb-alunos-row">
+      <div class="sb-aluno-chip enzo"><span class="sb-aluno-dot"></span>Enzo · 11a</div>
+      <div class="sb-aluno-chip felipe"><span class="sb-aluno-dot"></span>Felipe · 15a</div>
+    </div>
+  </div>
+
+</aside>
+
+<!-- ═══════════════════════════ MAIN ══════════════════════════════ -->
+<main class="main" id="main">
+
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <header class="atlas-hero">
+    <nav class="breadcrumb" aria-label="Localização">
+      <a href="../index.html">Início</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Atlas do Mundo</span>
+    </nav>
+    <div class="lesson-eyebrow">Atlas v1</div>
+    <h1 class="lesson-title">Atlas do Mundo</h1>
+    <p class="lesson-subtitle">Mapas para localizar, comparar e fazer perguntas melhores</p>
+    <div class="lesson-hero-chips">
+      <span class="h-chip h-chip-age">11–15 anos</span>
+      <span class="h-chip h-chip-duration">6 mapas · Semana 1</span>
+      <span class="h-chip h-chip-ficha">
+        <a href="../semanas/01/index.html" style="color:inherit">← Voltar à lição</a>
+      </span>
+    </div>
+  </header>
+
+  <!-- ── Corpo ─────────────────────────────────────────────────── -->
+  <div class="atlas-body">
+
+    <!-- ── Para que serve ──────────────────────────────────────── -->
+    <section id="sobre" aria-labelledby="sobre-title">
+      <h2 class="lesson-article" id="sobre-title"
+          style="font-family:'Lora',Georgia,serif;font-size:20px;font-weight:600;
+                 color:var(--lt-text);margin:0 0 16px;padding-bottom:10px;
+                 border-bottom:1px solid #E0DBD0;">Para que serve este Atlas</h2>
+      <div class="atlas-intro">
+        <p>Este Atlas não existe para separar o mundo entre países "bons" e "ruins". Ele serve para <strong>localizar lugares, perceber distâncias, observar mares, fronteiras e rotas</strong>, e fazer perguntas mais precisas.</p>
+        <p>Um mapa pode mostrar que um país tem litoral, muitos vizinhos ou um território grande. Ele não mostra sozinho se há boas escolas, regras previsíveis, desigualdade, conflitos ou oportunidades para a maioria das pessoas. Por isso, o mapa é o início de uma investigação, não a resposta final.</p>
+
+        <div class="bloco conceito-chave" style="margin-top:20px">
+          <div class="bloco-header">💡 Conceito-chave</div>
+          <div class="bloco-body">
+            <p><strong>Localizar não é explicar.</strong> A geografia cria facilidades e obstáculos, mas história, instituições, educação, infraestrutura e escolhas coletivas também participam da trajetória de um país.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ── Como usar ───────────────────────────────────────────── -->
+    <section id="como-usar" aria-labelledby="como-usar-title">
+      <h2 style="font-family:'Lora',Georgia,serif;font-size:20px;font-weight:600;
+                 color:var(--lt-text);margin:0 0 16px;padding-bottom:10px;
+                 border-bottom:1px solid #E0DBD0;" id="como-usar-title">Como usar</h2>
+      <p style="font-size:15px;line-height:1.7;color:#2A2430;margin-bottom:16px;">
+        Para a Semana 1, usem sempre os mesmos quatro casos: <strong>Brasil, Noruega, Coreia do Sul e Nigéria</strong>. Eles não foram escolhidos para formar uma classificação. Cada caso ajuda a testar uma explicação simples demais sobre riqueza, recursos, clima ou geografia.
+      </p>
+      <div class="como-usar-grid">
+        <div class="como-usar-step">
+          <div class="como-usar-num">1</div>
+          <div class="como-usar-text">Escolham um mapa pelo que desejam descobrir, não pelo que parece mais bonito.</div>
+        </div>
+        <div class="como-usar-step">
+          <div class="como-usar-num">2</div>
+          <div class="como-usar-text">Localizem primeiro o continente, os mares e os países vizinhos.</div>
+        </div>
+        <div class="como-usar-step">
+          <div class="como-usar-num">3</div>
+          <div class="como-usar-text">Façam uma observação que o mapa permite fazer.</div>
+        </div>
+        <div class="como-usar-step">
+          <div class="como-usar-num">4</div>
+          <div class="como-usar-text">Em seguida, formulem uma pergunta que o mapa sozinho não responde.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════════ MAPAS ════════════════════════════════ -->
+    <section id="atlas-mapas" aria-labelledby="mapas-title">
+      <h2 style="font-family:'Lora',Georgia,serif;font-size:20px;font-weight:600;
+                 color:var(--lt-text);margin:0 0 20px;padding-bottom:10px;
+                 border-bottom:1px solid #E0DBD0;" id="mapas-title">Mapas</h2>
+
+      <!-- ── Tabs ──────────────────────────────────────────────── -->
+      <nav class="atlas-nav" role="tablist" aria-label="Selecionar mapa">
+        <button class="atlas-tab" role="tab" aria-controls="panel-mapa-mundi-nomes"
+                data-map="mapa-mundi-nomes" aria-selected="true">
+          Mundo com nomes
+        </button>
+        <button class="atlas-tab" role="tab" aria-controls="panel-mapa-mundi-mudo"
+                data-map="mapa-mundi-mudo" aria-selected="false">
+          Mundo mudo
+        </button>
+        <button class="atlas-tab" role="tab" aria-controls="panel-europa-nomes"
+                data-map="europa-nomes" aria-selected="false">
+          Europa
+        </button>
+        <button class="atlas-tab" role="tab" aria-controls="panel-africa-nomes"
+                data-map="africa-nomes" aria-selected="false">
+          África
+        </button>
+        <button class="atlas-tab" role="tab" aria-controls="panel-asia-nomes"
+                data-map="asia-nomes" aria-selected="false">
+          Ásia
+        </button>
+        <button class="atlas-tab" role="tab" aria-controls="panel-america-do-sul-nomes"
+                data-map="america-do-sul-nomes" aria-selected="false">
+          América do Sul
+        </button>
+      </nav>
+
+      <!-- ─────────────────────────────────────────────────────── -->
+      <!-- PAINEL 1 — Mapa-múndi com nomes                        -->
+      <!-- ─────────────────────────────────────────────────────── -->
+      <div id="panel-mapa-mundi-nomes" class="atlas-panel" role="tabpanel"
+           aria-labelledby="tab-mundi-nomes">
+        <div class="atlas-panel-inner">
+
+          <div class="atlas-map-container">
+            <img src="../assets/atlas/mapa-mundi-nomes.svg"
+                 alt="Mapa-múndi com nomes dos países e oceanos em português"
+                 class="atlas-map"
+                 loading="lazy">
+            <button class="atlas-zoom-btn" type="button">⤢ Ampliar</button>
+          </div>
+
+          <div class="atlas-map-content">
+            <p class="atlas-question">
+              Onde ficam Brasil, Noruega, Coreia do Sul e Nigéria em relação aos continentes e aos oceanos?
+            </p>
+
+            <div class="atlas-content-section">
+              <h3>O que observar</h3>
+              <ul>
+                <li>Brasil fica na América do Sul e tem uma costa extensa voltada para o oceano Atlântico.</li>
+                <li>Noruega fica no norte da Europa e possui uma costa longa voltada para o Atlântico Norte e mares próximos.</li>
+                <li>Coreia do Sul fica no leste da Ásia, na porção sul da península Coreana, perto de China e Japão.</li>
+                <li>Nigéria fica no oeste da África, junto ao Golfo da Guiné, parte do oceano Atlântico.</li>
+              </ul>
+            </div>
+
+            <div class="atlas-atividades-grid">
+              <div class="bloco missao-enzo">
+                <div class="bloco-header">
+                  🎯 Missão — <span class="aluno-badge">Enzo</span>
+                </div>
+                <div class="bloco-body">
+                  <p>Encontre os quatro países. Para cada um, diga em voz alta:</p>
+                  <ol>
+                    <li>o continente;</li>
+                    <li>se ele tem acesso ao mar;</li>
+                    <li>um oceano ou mar próximo.</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="bloco desafio-felipe">
+                <div class="bloco-header">
+                  ⚡ Desafio — <span class="aluno-badge">Felipe</span>
+                </div>
+                <div class="bloco-body">
+                  <p>Escreva duas observações que o mapa permite fazer sobre os quatro países e duas perguntas que ele não responde. Evite usar palavras como "sempre", "nunca" ou "por isso é rico/pobre".</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bloco para-conversar">
+              <div class="bloco-header">💬 Para conversar</div>
+              <div class="bloco-body">
+                <p>Dois países podem ter acesso ao mar e resultados sociais muito diferentes? Que outras informações seriam necessárias para comparar suas oportunidades?</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────────────── -->
+      <!-- PAINEL 2 — Mapa-múndi mudo                             -->
+      <!-- ─────────────────────────────────────────────────────── -->
+      <div id="panel-mapa-mundi-mudo" class="atlas-panel" role="tabpanel"
+           aria-labelledby="tab-mundi-mudo" hidden>
+        <div class="atlas-panel-inner">
+
+          <div class="atlas-map-container">
+            <img src="../assets/atlas/mapa-mundi-mudo.svg"
+                 alt="Mapa-múndi mudo para exercício de localização — sem nomes de países"
+                 class="atlas-map"
+                 loading="lazy">
+            <button class="atlas-zoom-btn" type="button">⤢ Ampliar</button>
+          </div>
+
+          <div class="atlas-map-content">
+            <p class="atlas-question">
+              Consigo localizar sem depender do nome escrito?
+            </p>
+
+            <div class="atlas-content-section">
+              <p>Este mapa conserva as fronteiras políticas, os contornos dos continentes e os oceanos, mas remove todos os nomes. Ele não é um teste de memória: é uma maneira de perceber quais referências espaciais ajudam a orientação.</p>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>Atividade em dupla</h3>
+              <ol>
+                <li>Um aluno escolhe, sem dizer, um dos quatro países da Semana 1.</li>
+                <li>O outro faz no máximo cinco perguntas espaciais: continente, hemisfério, litoral, vizinhos ou oceano.</li>
+                <li>Troquem de papel.</li>
+              </ol>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>Registro curto</h3>
+              <p>Completem a frase:</p>
+              <blockquote style="margin:12px 0;padding:14px 18px;background:#F2EFE8;
+                                  border-left:3px solid var(--accent-gold);border-radius:0 8px 8px 0;
+                                  font-style:italic;font-size:15px;line-height:1.65;color:#3A3040;">
+                Para localizar um país em um mapa mudo, eu procuro primeiro ____ e depois ____.
+              </blockquote>
+            </div>
+
+            <div class="bloco para-conversar">
+              <div class="bloco-header">💬 Para o adulto</div>
+              <div class="bloco-body">
+                <p>Aceite aproximações geográficas razoáveis. O objetivo inicial é construir referências: continentes, oceanos, norte/sul, leste/oeste, litoral e vizinhança. A precisão de capitais e coordenadas não é o foco desta semana.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────────────── -->
+      <!-- PAINEL 3 — Europa com nomes                            -->
+      <!-- ─────────────────────────────────────────────────────── -->
+      <div id="panel-europa-nomes" class="atlas-panel" role="tabpanel"
+           aria-labelledby="tab-europa-nomes" hidden>
+        <div class="atlas-panel-inner">
+
+          <div class="atlas-map-container">
+            <img src="../assets/atlas/europa-nomes.svg"
+                 alt="Mapa da Europa com nomes dos países, mares e oceanos em português — foco na Noruega"
+                 class="atlas-map"
+                 loading="lazy">
+            <button class="atlas-zoom-btn" type="button">⤢ Ampliar</button>
+          </div>
+
+          <div class="atlas-map-content">
+            <p class="atlas-question">
+              Foco: Noruega — Como a posição geográfica cria condições de comércio e contato?
+            </p>
+
+            <div class="atlas-content-section">
+              <h3>O que deve aparecer</h3>
+              <p>Noruega, Suécia, Finlândia, Dinamarca, Islândia, Reino Unido e a parte europeia da Rússia quando visível; oceano Atlântico Norte, mar da Noruega, mar do Norte; fronteiras e nomes legíveis em português.</p>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>O que observar</h3>
+              <p>A Noruega fica na Península Escandinava e tem litoral muito recortado. Ela está próxima de rotas do Atlântico Norte e de outros países europeus. Essas são condições geográficas relevantes, mas não explicam sozinhas seus serviços públicos, sua economia ou suas instituições.</p>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>Atividade</h3>
+              <p>No mapa, encontrem uma rota marítima plausível entre a Noruega e o Reino Unido. Depois respondam:</p>
+              <ol>
+                <li>Que vantagem uma costa longa pode oferecer ao comércio e à pesca?</li>
+                <li>Que dificuldade climática ou de distância um país do norte ainda pode enfrentar?</li>
+                <li>Qual pergunta sobre a Noruega o mapa não consegue responder?</li>
+              </ol>
+            </div>
+
+            <div class="bloco conceito-chave">
+              <div class="bloco-header">💡 Conceito-chave</div>
+              <div class="bloco-body">
+                <p>Uma vantagem geográfica pode ajudar, mas precisa ser transformada em oportunidade por <strong>conhecimento, infraestrutura, regras e organização</strong>.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────────────── -->
+      <!-- PAINEL 4 — África com nomes                            -->
+      <!-- ─────────────────────────────────────────────────────── -->
+      <div id="panel-africa-nomes" class="atlas-panel" role="tabpanel"
+           aria-labelledby="tab-africa-nomes" hidden>
+        <div class="atlas-panel-inner">
+
+          <div class="atlas-map-container">
+            <img src="../assets/atlas/africa-nomes.svg"
+                 alt="Mapa da África com nomes dos países, Golfo da Guiné e oceano Atlântico em português — foco na Nigéria"
+                 class="atlas-map"
+                 loading="lazy">
+            <button class="atlas-zoom-btn" type="button">⤢ Ampliar</button>
+          </div>
+
+          <div class="atlas-map-content">
+            <p class="atlas-question">
+              Foco: Nigéria — O acesso ao Golfo da Guiné cria quais oportunidades e limites?
+            </p>
+
+            <div class="atlas-content-section">
+              <h3>O que deve aparecer</h3>
+              <p>Nigéria, Benim, Níger, Chade e Camarões; Golfo da Guiné e oceano Atlântico; fronteiras e nomes legíveis em português.</p>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>O que observar</h3>
+              <p>A Nigéria tem acesso ao Golfo da Guiné e está ligada a uma região de intensa circulação de pessoas, produtos e recursos. É um país muito populoso e diverso, portanto uma frase única nunca basta para descrevê-lo.</p>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>Atividade</h3>
+              <ol>
+                <li>Localizem a Nigéria e seus quatro vizinhos terrestres.</li>
+                <li>Expliquem como o acesso ao Golfo da Guiné pode facilitar contatos comerciais.</li>
+                <li>Conversem: por que acesso ao mar e recursos naturais não garantem, por si sós, bem-estar amplo?</li>
+              </ol>
+            </div>
+
+            <div class="bloco desafio-felipe">
+              <div class="bloco-header">
+                ⚡ Desafio — <span class="aluno-badge">Felipe</span>
+              </div>
+              <div class="bloco-body">
+                <p>Critique esta frase em três ou quatro linhas: <em>"Um país com petróleo tem tudo de que precisa para ser próspero."</em> Use o mapa apenas como ponto de partida, não como prova final.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────────────── -->
+      <!-- PAINEL 5 — Ásia com nomes                              -->
+      <!-- ─────────────────────────────────────────────────────── -->
+      <div id="panel-asia-nomes" class="atlas-panel" role="tabpanel"
+           aria-labelledby="tab-asia-nomes" hidden>
+        <div class="atlas-panel-inner">
+
+          <div class="atlas-map-container">
+            <img src="../assets/atlas/asia-nomes.svg"
+                 alt="Mapa do leste da Ásia com nomes dos países — foco na Coreia do Sul, península Coreana, mar Amarelo e mar do Japão"
+                 class="atlas-map"
+                 loading="lazy">
+            <button class="atlas-zoom-btn" type="button">⤢ Ampliar</button>
+          </div>
+
+          <div class="atlas-map-content">
+            <p class="atlas-question">
+              Foco: Coreia do Sul — Como a posição em uma península perto de grandes economias cria oportunidades e riscos?
+            </p>
+
+            <div class="atlas-content-section">
+              <h3>O que deve aparecer</h3>
+              <p>Coreia do Sul, Coreia do Norte, China, Japão e Rússia quando visível; península Coreana, mar Amarelo e mar do Japão (também chamado mar do Leste); fronteiras e nomes legíveis em português.</p>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>O que observar</h3>
+              <p>A Coreia do Sul fica em uma península, perto de grandes economias e de importantes rotas marítimas do leste asiático. Também vive em uma região marcada por guerras, tensões e transformações rápidas. O mapa mostra proximidade; ele não mostra, sozinho, como educação, indústria e políticas públicas mudaram ao longo do tempo.</p>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>Atividade</h3>
+              <ol>
+                <li>Encontrem a Coreia do Sul, a Coreia do Norte, a China e o Japão.</li>
+                <li>Identifiquem dois mares próximos.</li>
+                <li>Expliquem por que estar perto de grandes mercados pode ser uma oportunidade e também uma fonte de riscos.</li>
+              </ol>
+            </div>
+
+            <div class="bloco para-conversar">
+              <div class="bloco-header">💬 Para conversar</div>
+              <div class="bloco-body">
+                <p>Países próximos recebem automaticamente os mesmos resultados? Que decisões, conflitos ou capacidades podem fazer trajetórias próximas seguirem caminhos diferentes?</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────────────── -->
+      <!-- PAINEL 6 — América do Sul com nomes                    -->
+      <!-- ─────────────────────────────────────────────────────── -->
+      <div id="panel-america-do-sul-nomes" class="atlas-panel" role="tabpanel"
+           aria-labelledby="tab-america-do-sul-nomes" hidden>
+        <div class="atlas-panel-inner">
+
+          <div class="atlas-map-container">
+            <img src="../assets/atlas/america-do-sul-nomes.svg"
+                 alt="Mapa da América do Sul com nomes dos países, oceanos Atlântico e Pacífico, e marcador de Salvador (BA) em português — foco no Brasil"
+                 class="atlas-map"
+                 loading="lazy">
+            <button class="atlas-zoom-btn" type="button">⤢ Ampliar</button>
+          </div>
+
+          <div class="atlas-map-content">
+            <p class="atlas-question">
+              Foco: Brasil — O que a posição na América do Sul revela sobre oportunidades e desafios?
+            </p>
+
+            <div class="atlas-content-section">
+              <h3>O que deve aparecer</h3>
+              <p>Brasil e todos os países sul-americanos; oceano Atlântico e oceano Pacífico; fronteiras e nomes legíveis em português; marcador discreto para Salvador (BA).</p>
+            </div>
+
+            <div class="atlas-content-section">
+              <h3>O que observar</h3>
+              <p>O Brasil ocupa grande parte da América do Sul, possui extensa costa atlântica e faz fronteira com quase todos os países sul-americanos. Essas características criam possibilidades de comércio, cooperação e circulação, mas também desafios de distância, integração interna e infraestrutura.</p>
+            </div>
+
+            <div class="atlas-atividades-grid">
+              <div class="bloco missao-enzo">
+                <div class="bloco-header">
+                  🎯 Missão — <span class="aluno-badge">Enzo</span>
+                </div>
+                <div class="bloco-body">
+                  <p>Partindo de Salvador, imagine o caminho de uma carga até um porto e depois até a Europa. Cite três coisas que poderiam facilitar ou dificultar essa viagem.</p>
+                </div>
+              </div>
+              <div class="bloco desafio-felipe">
+                <div class="bloco-header">
+                  ⚡ Desafio — <span class="aluno-badge">Felipe</span>
+                </div>
+                <div class="bloco-body">
+                  <p>Compare duas frases:</p>
+                  <ol>
+                    <li><em>"O Brasil tem muitos recursos, portanto será rico."</em></li>
+                    <li><em>"O Brasil tem muitos recursos e desafios de transformação desses recursos em oportunidades amplas."</em></li>
+                  </ol>
+                  <p>Qual frase é mais cuidadosa? Explique o que a segunda acrescenta.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /atlas-mapas -->
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════════ COMPARAR ═════════════════════════════ -->
+    <section id="comparar" class="atlas-comparar" aria-labelledby="comparar-title">
+      <h2 id="comparar-title">Comparar os quatro casos</h2>
+
+      <p style="font-size:15px;line-height:1.7;color:#2A2430;margin-bottom:16px;">
+        Depois de usar os mapas, preencham mentalmente ou na ficha esta tabela. A última coluna é obrigatória: ela impede que o mapa seja usado como explicação única.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>País</th>
+              <th>Continente</th>
+              <th>Acesso ao mar</th>
+              <th>Dois vizinhos ou mares próximos</th>
+              <th>Uma possibilidade geográfica</th>
+              <th>Uma pergunta que o mapa não responde</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Brasil</strong></td>
+              <td>América do Sul</td>
+              <td>Sim</td>
+              <td><em>(preencher)</em></td>
+              <td><em>(preencher)</em></td>
+              <td><em>(preencher)</em></td>
+            </tr>
+            <tr>
+              <td><strong>Noruega</strong></td>
+              <td>Europa</td>
+              <td>Sim</td>
+              <td><em>(preencher)</em></td>
+              <td><em>(preencher)</em></td>
+              <td><em>(preencher)</em></td>
+            </tr>
+            <tr>
+              <td><strong>Coreia do Sul</strong></td>
+              <td>Ásia</td>
+              <td>Sim</td>
+              <td><em>(preencher)</em></td>
+              <td><em>(preencher)</em></td>
+              <td><em>(preencher)</em></td>
+            </tr>
+            <tr>
+              <td><strong>Nigéria</strong></td>
+              <td>África</td>
+              <td>Sim</td>
+              <td><em>(preencher)</em></td>
+              <td><em>(preencher)</em></td>
+              <td><em>(preencher)</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Respostas de referência para o adulto</h3>
+      <p style="font-size:14px;color:var(--lt-muted);margin-bottom:12px;">
+        Estas não são respostas únicas. Elas ajudam apenas a conferir a localização básica.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>País</th>
+              <th>Exemplos de vizinhos ou mares</th>
+              <th>Possibilidade geográfica observável</th>
+              <th>Limite da leitura do mapa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Brasil</strong></td>
+              <td>Argentina, Bolívia, Peru, Colômbia, Venezuela, oceano Atlântico</td>
+              <td>Costa extensa e ligação com quase todos os países da América do Sul</td>
+              <td>Não explica desigualdade, qualidade da escola ou capacidade de executar políticas públicas</td>
+            </tr>
+            <tr>
+              <td><strong>Noruega</strong></td>
+              <td>Suécia, Finlândia, Rússia, mar da Noruega, mar do Norte</td>
+              <td>Litoral voltado ao Atlântico Norte e proximidade de mercados europeus</td>
+              <td>Não explica como recursos e receitas foram administrados</td>
+            </tr>
+            <tr>
+              <td><strong>Coreia do Sul</strong></td>
+              <td>Coreia do Norte, China, Japão, mar Amarelo, mar do Japão (mar do Leste)</td>
+              <td>Proximidade de rotas e mercados do leste asiático</td>
+              <td>Não explica industrialização, educação ou conflitos políticos</td>
+            </tr>
+            <tr>
+              <td><strong>Nigéria</strong></td>
+              <td>Benim, Níger, Chade, Camarões, Golfo da Guiné</td>
+              <td>Acesso ao Atlântico por meio do Golfo da Guiné</td>
+              <td>Não explica distribuição da renda, instituições ou diversidade interna</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>O que o mapa responde e o que ele não responde</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>O mapa ajuda a responder</th>
+              <th>O mapa não responde sozinho</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Onde fica um país?</td>
+              <td>Por que pessoas daquele país têm determinadas oportunidades?</td>
+            </tr>
+            <tr>
+              <td>Quais são seus vizinhos, mares e oceanos próximos?</td>
+              <td>Se a renda é bem distribuída?</td>
+            </tr>
+            <tr>
+              <td>Se tem litoral, território grande ou muitos vizinhos?</td>
+              <td>Se escolas, hospitais, leis e estradas funcionam bem?</td>
+            </tr>
+            <tr>
+              <td>Quais rotas ou distâncias podem importar?</td>
+              <td>Como a história, os conflitos e as decisões coletivas moldaram a sociedade?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bloco para-conversar" style="margin-top:24px">
+        <div class="bloco-header">💬 Para conversar</div>
+        <div class="bloco-body">
+          <p>Escolham uma afirmação absoluta, como "país tropical é pobre" ou "petróleo deixa um país rico". Que informação do Atlas ajuda a testar a frase? Que informação precisa ser buscada fora do mapa?</p>
+        </div>
+      </div>
+
+    </section>
+
+  </div><!-- /atlas-body -->
+
+  <!-- ── Rodapé ─────────────────────────────────────────────────── -->
+  <footer class="atlas-footer">
+    <p class="atlas-attribution">
+      Dados cartográficos: Natural Earth, domínio público.<br>
+      Rótulos e atividades didáticas: Cultura Geral Moderna.
+    </p>
+    <a href="../semanas/01/index.html" class="atlas-back-link">← Voltar à Semana 1</a>
+  </footer>
+
+</main>
+
+<!-- Mobile bottom nav -->
+<nav class="mobile-nav" aria-label="Navegação mobile">
+  <div class="mobile-nav-inner">
+    <a href="../index.html" class="mobile-nav-item">
+      <span>🏠</span><span>Início</span>
+    </a>
+    <a href="../index.html#biblioteca" class="mobile-nav-item">
+      <span>📚</span><span>Biblioteca</span>
+    </a>
+    <a href="../atlas/index.html" class="mobile-nav-item active">
+      <span>🗺️</span><span>Atlas</span>
+    </a>
+    <a href="../semanas/01/index.html" class="mobile-nav-item">
+      <span>📖</span><span>Semana 1</span>
+    </a>
+  </div>
+</nav>
+
+<script src="../assets/js/atlas-engine.js"></script>
+</body>
+</html>

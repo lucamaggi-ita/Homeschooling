@@ -1,0 +1,7 @@
+# Cache de dados cartográficos (arquivo grande; regenerado pelo script)
+tools/ne_110m_countries.geojson
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

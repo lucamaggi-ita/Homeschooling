@@ -1,0 +1,272 @@
+/* atlas.css — Folha de estilos do Atlas v1
+   Paleta Brasil & Açaí (aprovada 2026-06-22)
+   Complementa lesson.css: reutiliza tokens, sidebar, hero e bloco semântico */
+
+/* ── Hero do Atlas ───────────────────────────────────────────── */
+.atlas-hero {
+  background: var(--sb-bg);
+  border-bottom: 1px solid var(--sb-border);
+  padding: 40px 48px 36px;
+}
+
+/* ── Layout principal ────────────────────────────────────────── */
+.atlas-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+}
+
+/* ── Introdução ──────────────────────────────────────────────── */
+.atlas-intro {
+  margin-bottom: 40px;
+  max-width: 800px;
+}
+.atlas-intro p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #2A2430;
+  margin-bottom: 14px;
+}
+.atlas-intro p strong { font-weight: 700; color: var(--lt-text); }
+
+/* ── Como usar ───────────────────────────────────────────────── */
+.como-usar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.como-usar-step {
+  background: #EAF4EE;
+  border: 1px solid rgba(0,155,58,0.18);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.como-usar-num {
+  width: 24px; height: 24px;
+  background: var(--accent-teal);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800;
+  flex-shrink: 0;
+}
+.como-usar-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #0D3B1A;
+}
+
+/* ── Separador de seção ──────────────────────────────────────── */
+.section-divider {
+  border: none;
+  border-top: 1px solid #E0DBD0;
+  margin: 36px 0;
+}
+
+/* ── Navegação dos mapas (tabs) ──────────────────────────────── */
+.atlas-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.atlas-tab {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px; font-weight: 600;
+  color: var(--lt-muted);
+  background: #F0EBE0;
+  border: 1px solid #E0DBD0;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'Sora', system-ui, sans-serif;
+}
+.atlas-tab:hover:not([aria-selected="true"]) {
+  background: #E8E4D8;
+  color: var(--lt-text);
+}
+.atlas-tab[aria-selected="true"] {
+  background: var(--accent-teal);
+  color: white;
+  border-color: var(--accent-teal);
+}
+.atlas-tab:focus-visible {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 2px;
+}
+
+/* ── Painel do mapa ──────────────────────────────────────────── */
+.atlas-panel[hidden] { display: none !important; }
+
+.atlas-panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Container do mapa SVG */
+.atlas-map-container {
+  position: relative;
+  background: #B8CEDE;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #A0B8CC;
+}
+
+.atlas-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.atlas-zoom-btn {
+  position: absolute;
+  bottom: 12px; right: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  color: white;
+  border: none;
+  padding: 7px 13px;
+  border-radius: 7px;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: 'Sora', system-ui, sans-serif;
+}
+.atlas-zoom-btn:hover { background: rgba(0,0,0,0.75); }
+.atlas-zoom-btn:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* ── Conteúdo didático ───────────────────────────────────────── */
+.atlas-map-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.atlas-question {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px; font-weight: 600;
+  color: var(--lt-text);
+  line-height: 1.45;
+  padding: 16px 20px;
+  background: #F5F2EC;
+  border-left: 3px solid var(--accent-teal);
+  border-radius: 0 10px 10px 0;
+  margin: 0;
+}
+
+.atlas-content-section {
+  margin-bottom: 4px;
+}
+.atlas-content-section h3 {
+  font-size: 14px; font-weight: 700;
+  color: var(--lt-muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.atlas-content-section p,
+.atlas-content-section li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #2A2430;
+  margin-bottom: 8px;
+}
+.atlas-content-section ol,
+.atlas-content-section ul {
+  margin: 0 0 8px 22px;
+}
+
+/* Grade de atividades (Enzo / Felipe lado a lado em desktop) */
+.atlas-atividades-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+/* Blocos semânticos no Atlas reutilizam as classes de lesson.css */
+/* Garantia de margem correta dentro do painel */
+.atlas-map-content .bloco {
+  margin: 0;
+}
+
+/* ── Seção de comparação ─────────────────────────────────────── */
+.atlas-comparar {
+  margin-top: 40px;
+}
+.atlas-comparar h2 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px; font-weight: 600;
+  color: var(--lt-text);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E0DBD0;
+}
+.atlas-comparar h3 {
+  font-size: 15px; font-weight: 700;
+  color: var(--lt-text);
+  margin: 24px 0 12px;
+}
+
+/* ── Rodapé do Atlas ─────────────────────────────────────────── */
+.atlas-footer {
+  border-top: 1px solid #E0DBD0;
+  padding: 24px 48px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.atlas-attribution {
+  font-size: 12px;
+  color: var(--lt-faint);
+  line-height: 1.6;
+}
+.atlas-back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600;
+  color: var(--lt-muted);
+  background: #F0EBE0;
+  border: 1px solid #E0DBD0;
+  padding: 9px 16px;
+  border-radius: 8px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.atlas-back-link:hover {
+  background: #E8E4D8;
+  color: var(--lt-text);
+}
+
+/* ── Responsivo ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .atlas-hero { padding: 28px 20px 24px; }
+  .atlas-body  { padding: 28px 20px 80px; }
+  .atlas-footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+  .atlas-atividades-grid { grid-template-columns: 1fr; }
+  .atlas-tab { font-size: 12px; padding: 7px 13px; }
+}
+
+@media (max-width: 480px) {
+  .atlas-tab { font-size: 11px; padding: 6px 10px; }
+  .atlas-question { font-size: 15px; }
+}
+
+/* ── Print ───────────────────────────────────────────────────── */
+@media print {
+  .atlas-nav, .atlas-zoom-btn, .atlas-footer { display: none !important; }
+  .atlas-map-container { break-inside: avoid; }
+  .atlas-body { padding: 0; max-width: none; }
+}

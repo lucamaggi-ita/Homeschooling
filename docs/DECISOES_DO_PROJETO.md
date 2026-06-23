@@ -64,3 +64,19 @@ Registro de decisões de design e arquitetura do site. Mantido por Claude; mudan
 **Decisão:** A ficha (`semanas/01/ficha.html`) é uma página HTML separada com `@media print` dedicado. Imprime em A4 com `margin: 12mm`.
 
 **Motivo:** Simplicidade de implementação; não depende de PDF gerado por servidor.
+
+---
+
+## 2026-06-22 — Atlas v1 — dados cartográficos e arquitetura
+
+**Decisão:** Os 6 SVGs do Atlas são gerados por `tools/gerar-mapas-atlas.py` a partir dos dados **Natural Earth 110m** (domínio público). Os arquivos SVG são armazenados em `assets/atlas/` e carregados via `<img>` no HTML. A página do Atlas está em `atlas/index.html`.
+
+**Projeção:** Equiretangular (lon → x, lat → y) com bounding box por mapa e recorte via `<clipPath>` SVG.
+
+**Rótulos:** Nomes em português brasileiro via mapeamento explícito no script (`PT` dict). Posições ajustadas manualmente para os países principais (`LABEL_OVERRIDE`).
+
+**Atribuição exibida:** `Dados cartográficos: Natural Earth, domínio público. Rótulos e atividades didáticas: Cultura Geral Moderna.`
+
+**Fonte completa:** `tools/ATRIBUICAO.md`
+
+**Motivo:** Garante que os mapas funcionem completamente offline (GitHub Pages) sem dependência de APIs, tiles ou recursos remotos em tempo de execução. O download do Natural Earth é apenas build-time.
