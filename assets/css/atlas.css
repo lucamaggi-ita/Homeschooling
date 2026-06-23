@@ -223,6 +223,66 @@
   padding-bottom: 10px;
   border-bottom: 1px solid #E0DBD0;
 }
+/* CTA para a ficha da Semana 1 */
+.atlas-ficha-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  background: var(--accent-teal);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 28px;
+  transition: background 0.15s;
+}
+.atlas-ficha-cta::before { content: "📋 "; }
+.atlas-ficha-cta:hover { background: #2fada0; }
+.atlas-ficha-cta:focus-visible {
+  outline: 3px solid rgba(0, 155, 58, 0.45);
+  outline-offset: 3px;
+}
+
+/* Details de respostas de referência */
+.atlas-ref-details {
+  margin: 24px 0 8px;
+  border: 1px solid #E0DBD0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.atlas-ref-details summary {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--lt-muted);
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F5F2EC;
+  user-select: none;
+}
+.atlas-ref-details summary::-webkit-details-marker { display: none; }
+.atlas-ref-details summary::before {
+  content: "▶";
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  color: var(--lt-faint);
+}
+.atlas-ref-details[open] summary::before { transform: rotate(90deg); }
+.atlas-ref-details summary:hover { color: var(--lt-text); background: #EDE9E0; }
+.atlas-ref-details summary:focus-visible {
+  outline: 3px solid rgba(0, 155, 58, 0.35);
+  outline-offset: -3px;
+}
+.atlas-ref-details > p,
+.atlas-ref-details > .table-wrap {
+  padding: 0 16px;
+}
+.atlas-ref-details > .table-wrap { padding-bottom: 16px; }
+
 .atlas-comparar h3 {
   font-size: 15px; font-weight: 700;
   color: var(--lt-text);

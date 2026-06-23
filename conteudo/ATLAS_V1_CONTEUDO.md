@@ -213,7 +213,7 @@ Qual frase é mais cuidadosa? Explique o que a segunda acrescenta.
 
 ## Comparar os quatro casos
 
-Depois de usar os mapas, preencham mentalmente ou na ficha esta tabela. A última coluna é obrigatória: ela impede que o mapa seja usado como explicação única.
+Depois de observar os mapas, registrem suas respostas na ficha da Semana 1. A última coluna é obrigatória: ela impede que o mapa seja usado como explicação única.
 
 | País | Continente | Acesso ao mar | Dois vizinhos ou mares próximos | Uma possibilidade geográfica | Uma pergunta que o mapa não responde |
 |---|---|---|---|---|---|
