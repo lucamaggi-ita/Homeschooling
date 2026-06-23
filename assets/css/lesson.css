@@ -157,6 +157,7 @@ img { display: block; max-width: 100%; }
 .main {
   margin-left: var(--sb-w);
   flex: 1;
+  min-width: 0;
   background: var(--page-bg);
   min-height: 100vh;
 }
