@@ -22,8 +22,8 @@
           p.setAttribute('hidden', '');
         }
       });
-      /* Persiste seleção no hash para o botão voltar do browser */
-      try { history.replaceState(null, '', '#' + mapId); } catch (e) {}
+      /* Persiste seleção no hash sem disparar o salto nativo de ID do navegador */
+      try { history.replaceState(null, '', '#map-' + mapId); } catch (e) {}
     }
 
     /* ── Eventos dos tabs ───────────────────────────────────── */
@@ -78,7 +78,7 @@
     });
 
     /* ── Restaurar do hash (link direto ou voltar) ──────────── */
-    var hash = location.hash.replace('#', '');
+    var hash = location.hash.replace('#map-', '');
     var valid = Array.from(tabs).some(function (t) { return t.dataset.map === hash; });
     activateMap(valid ? hash : (tabs[0] && tabs[0].dataset.map));
   }
