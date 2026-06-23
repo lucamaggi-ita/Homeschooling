@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Contraste entre poucas oportunidades e cidade portuaria</title>
+  <desc id="desc">Ilustracao dividida verticalmente: a esquerda, uma comunidade rural com pouca infraestrutura; a direita, uma cidade portuaria ligada ao comercio.</desc>
+
+  <rect width="900" height="1600" fill="#0a152a"/>
+  <g fill="#9db5cf" opacity=".72">
+    <circle cx="64" cy="110" r="3"/><circle cx="158" cy="214" r="2"/><circle cx="277" cy="127" r="3"/>
+    <circle cx="382" cy="198" r="2"/><circle cx="534" cy="105" r="3"/><circle cx="672" cy="183" r="2"/>
+    <circle cx="817" cy="89" r="3"/>
+  </g>
+  <circle cx="809" cy="118" r="15" fill="#008c54"/>
+  <circle cx="809" cy="118" r="8" fill="#35d878"/>
+
+  <!-- Left: fewer opportunities, shown through terrain and infrastructure. -->
+  <rect x="0" y="0" width="450" height="760" fill="#f2c36d"/>
+  <rect x="0" y="500" width="450" height="260" fill="#df9b52"/>
+  <circle cx="117" cy="182" r="62" fill="#ffd76a"/>
+  <circle cx="117" cy="182" r="45" fill="#ffe991"/>
+  <path d="M244 275 C286 255 328 257 367 278" fill="none" stroke="#f8d58a" stroke-width="15" stroke-linecap="round" opacity=".72"/>
+  <path d="M51 373 C98 353 143 357 183 377" fill="none" stroke="#f8d58a" stroke-width="13" stroke-linecap="round" opacity=".62"/>
+  <path d="M0 756 C118 741 224 748 326 735 C372 729 410 730 450 721 V1600 H0Z" fill="#62412f"/>
+  <path d="M0 851 C123 837 234 844 338 826 C380 819 416 821 450 812 V1600 H0Z" fill="#895b3f"/>
+  <path d="M0 962 C127 951 248 955 349 938 C390 931 420 932 450 925 V1600 H0Z" fill="#bd8d59"/>
+  <path d="M0 1081 C135 1067 250 1073 350 1055 C390 1048 422 1049 450 1043 V1600 H0Z" fill="#79533a"/>
+  <!-- The river crosses the lowland diagonally, from left to right. -->
+  <path d="M0 1162 C110 1140 201 1111 284 1063 C350 1025 409 984 450 952 V1080 C398 1114 339 1153 270 1187 C189 1227 99 1257 0 1283Z" fill="#2a6682"/>
+  <path d="M0 1192 C109 1170 203 1141 293 1093 C354 1060 405 1024 450 988 V1038 C394 1078 339 1114 278 1146 C194 1191 101 1220 0 1248Z" fill="#4a91a9" opacity=".78"/>
+
+  <g>
+    <rect x="56" y="963" width="110" height="83" fill="#5b4439"/>
+    <path d="M42 963 L111 912 L181 963Z" fill="#344058"/>
+    <rect x="74" y="989" width="22" height="27" fill="#d0a656" opacity=".55"/>
+    <rect x="123" y="985" width="28" height="61" fill="#342b2e"/>
+    <rect x="224" y="889" width="95" height="70" fill="#664a38"/>
+    <path d="M211 889 L272 846 L333 889Z" fill="#3c4658"/>
+    <rect x="246" y="912" width="26" height="47" fill="#362d30"/>
+    <rect x="285" y="910" width="17" height="20" fill="#d0a656" opacity=".45"/>
+  </g>
+  <!-- Coconut palms give the lowland a tropical character. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M186 1052 C202 988 200 923 185 862" stroke="#5b3a29" stroke-width="13"/>
+    <path d="M185 868 C151 846 128 819 119 787 M185 868 C210 829 241 809 275 802 M185 868 C177 827 181 794 196 766 M185 868 C221 858 256 866 288 888 M185 868 C155 877 128 901 113 932" stroke="#2d7354" stroke-width="16"/>
+    <path d="M392 976 C407 924 405 878 391 840" stroke="#5b3a29" stroke-width="11"/>
+    <path d="M391 846 C362 825 343 804 336 775 M391 846 C416 815 443 802 450 800 M391 846 C386 814 391 787 404 766 M391 846 C420 840 440 847 450 858" stroke="#2d7354" stroke-width="13"/>
+  </g>
+  <path d="M26 1120 C112 1099 223 1132 330 1103 C374 1091 414 1092 450 1081" fill="none" stroke="#d6ad6b" stroke-width="10" opacity=".75"/>
+
+  <!-- Right: connected city, port and container trade. -->
+  <path d="M450 700 L526 637 L604 679 L687 550 L768 662 L850 582 L900 620 V1000 H450Z" fill="#252b43"/>
+  <path d="M450 762 C541 712 632 727 700 687 C772 644 836 663 900 628 V1050 H450Z" fill="#38405b"/>
+  <g fill="#263958">
+    <rect x="472" y="733" width="36" height="220" rx="3"/><rect x="517" y="670" width="51" height="283" rx="3"/>
+    <rect x="578" y="718" width="41" height="235" rx="3"/><rect x="629" y="637" width="56" height="316" rx="3"/>
+    <rect x="696" y="702" width="41" height="251" rx="3"/><rect x="747" y="661" width="55" height="292" rx="3"/>
+    <rect x="813" y="723" width="38" height="230" rx="3"/><rect x="858" y="688" width="35" height="265" rx="3"/>
+  </g>
+  <g fill="#d3a848" opacity=".9">
+    <rect x="484" y="761" width="7" height="7"/><rect x="535" y="699" width="8" height="8"/>
+    <rect x="554" y="744" width="7" height="7"/><rect x="647" y="669" width="8" height="8"/>
+    <rect x="671" y="721" width="8" height="7"/><rect x="769" y="694" width="8" height="8"/>
+    <rect x="836" y="748" width="7" height="7"/><rect x="872" y="719" width="7" height="7"/>
+  </g>
+  <path d="M450 982 C563 952 693 965 900 924 V1600 H450Z" fill="#0b1b2a"/>
+  <path d="M450 1080 C568 1046 692 1057 900 1018 V1600 H450Z" fill="#0e2638"/>
+  <path d="M459 1001 H900 L900 1053 H451Z" fill="#303b49"/>
+  <rect x="472" y="978" width="80" height="43" rx="4" fill="#27898e"/>
+  <rect x="562" y="990" width="69" height="39" rx="4" fill="#824442"/>
+  <rect x="819" y="973" width="65" height="43" rx="4" fill="#8a7333"/>
+  <g transform="translate(472 1062) scale(.52)">
+    <rect x="83" y="120" width="94" height="69" rx="4" fill="#315172"/><rect x="183" y="120" width="94" height="69" rx="4" fill="#2a4666"/>
+    <rect x="283" y="120" width="94" height="69" rx="4" fill="#355471"/><rect x="383" y="120" width="94" height="69" rx="4" fill="#2b4867"/>
+    <rect x="183" y="57" width="94" height="60" rx="4" fill="#3a5a79"/><rect x="283" y="57" width="94" height="60" rx="4" fill="#304e6d"/>
+    <rect x="510" y="45" width="111" height="140" rx="7" fill="#263f63"/><rect x="541" y="0" width="95" height="52" rx="7" fill="#2f4b73"/>
+    <path d="M0 181 H720 L653 317 H118Z" fill="#192b47"/><path d="M35 194 H682 L650 256 H63Z" fill="#263c5d"/>
+  </g>
+
+  <path d="M450 214 V1395" stroke="#d5b174" stroke-width="4" opacity=".52"/>
+  <text x="450" y="1515" fill="#a6a4a1" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" opacity=".6">oportunidades nao chegam do mesmo modo a todos</text>
+</svg>

@@ -269,7 +269,7 @@
     .semana-cover-wrap {
       position: relative;
       width: 100%;
-      height: 280px;
+      aspect-ratio: 9 / 16;
       background: #110E15;
     }
 
@@ -443,6 +443,7 @@
     .ficha    .disc-label { color: #002776; }
 
     .disc-title {
+      margin: 0;
       font-size: 14px; font-weight: 700;
       color: var(--lt-text);
       line-height: 1.4;
@@ -533,8 +534,9 @@
     /* ── Section 3 — Library ─────── */
     .library-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, 132px);
+      justify-content: start;
+      gap: 16px;
     }
 
     .lib-card {
@@ -551,7 +553,7 @@
     }
 
     .lib-cover {
-      aspect-ratio: 3/4;
+      aspect-ratio: 3 / 4;
       position: relative;
     }
 
@@ -565,26 +567,38 @@
       opacity: 0.7;
     }
 
+    .lib-cover-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .lib-card:first-child .lib-cover-inner svg {
+      display: none;
+    }
+
     .lib-body {
-      padding: 12px 14px 14px;
+      padding: 8px;
       background: var(--card-bg);
     }
     .lib-num {
-      font-size: 10px; font-weight: 700;
+      font-size: 9px; font-weight: 700;
       color: var(--accent-gold);
       text-transform: uppercase; letter-spacing: 0.1em;
       margin-bottom: 4px;
     }
     .lib-title {
       font-family: 'Lora', Georgia, serif;
-      font-size: 13px; font-weight: 600;
+      font-size: 11px; font-weight: 600;
       color: #E0DBD0;
       line-height: 1.4;
     }
     .lib-status {
-      margin-top: 8px;
+      margin-top: 6px;
       display: flex; align-items: center; gap: 5px;
-      font-size: 10px; font-weight: 600;
+      font-size: 9px; font-weight: 600;
       color: var(--accent-teal);
     }
     .lib-status-dot {
@@ -665,13 +679,14 @@
       .world-card.atlas { grid-column: span 1; }
 
       .library-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 132px);
+        justify-content: center;
       }
     }
 
     @media (max-width: 480px) {
       .section-title { font-size: 18px; }
-      .library-grid { grid-template-columns: repeat(2, 1fr); }
+      .library-grid { grid-template-columns: repeat(2, minmax(0, 132px)); }
     }
   </style>
 </head>
@@ -745,7 +760,10 @@
       <article class="semana-card">
         <div class="semana-cover-wrap">
           <span class="badge-semana-top">Semana 1</span>
-          <!-- Inserir <img src="assets/capas/semana-01.webp" alt="..."> quando a capa for aprovada por Luca -->
+          <img
+            src="assets/capas/semana-01-contraste-oportunidades.svg"
+            alt="Contraste entre poucas oportunidades e cidade portuaria"
+          >
         </div>
 
         <div class="semana-card-body">
@@ -775,7 +793,7 @@
           <div class="disc-icon-wrap">💡</div>
           <div class="disc-body">
             <div class="disc-label">Conceito-chave</div>
-            <div class="disc-title">Desenvolvimento é ampliar oportunidades reais</div>
+            <h3 class="disc-title">Desenvolvimento é ampliar oportunidades reais</h3>
             <div class="disc-desc">Não é apenas ter mais dinheiro circulando — é poder estudar, trabalhar com dignidade, circular com segurança e planejar o futuro.</div>
           </div>
           <div class="disc-arrow">›</div>
@@ -785,7 +803,7 @@
           <div class="disc-icon-wrap">🎯</div>
           <div class="disc-body">
             <div class="disc-label">Missões desta semana</div>
-            <div class="disc-title">Enzo e Felipe têm desafios calibrados</div>
+            <h3 class="disc-title">Enzo e Felipe têm desafios calibrados</h3>
             <div class="disc-desc">Enzo explora trajetos, mapas e cadeias do cacau. Felipe argumenta, usa contraexemplos e escreve teses sobre o Brasil.</div>
           </div>
           <div class="disc-arrow">›</div>
@@ -795,7 +813,7 @@
           <div class="disc-icon-wrap">💬</div>
           <div class="disc-body">
             <div class="disc-label">Para conversar em família</div>
-            <div class="disc-title">7 perguntas para o debate</div>
+            <h3 class="disc-title">7 perguntas para o debate</h3>
             <div class="disc-desc">Um país pode ser rico e injusto ao mesmo tempo? Por que um porto, uma escola e um contrato aparecem na mesma conversa?</div>
           </div>
           <div class="disc-arrow">›</div>
@@ -805,7 +823,7 @@
           <div class="disc-icon-wrap">📋</div>
           <div class="disc-body">
             <div class="disc-label">Ficha imprimível</div>
-            <div class="disc-title">1–2 páginas para atividade presencial</div>
+            <h3 class="disc-title">1–2 páginas para atividade presencial</h3>
             <div class="disc-desc">Quatro lentes para um país, teste do contraexemplo, cadeia do cacau ao chocolate e hipótese sobre o Brasil.</div>
           </div>
           <div class="disc-arrow">›</div>
@@ -862,7 +880,12 @@
       <!-- Semana 1 — única existente -->
       <div class="lib-card">
         <div class="lib-cover">
-          <div class="lib-cover-inner" aria-hidden="true">
+          <div class="lib-cover-inner">
+            <img
+              class="lib-cover-image"
+              src="assets/capas/semana-01-contraste-oportunidades.svg"
+              alt="Contraste entre poucas oportunidades e cidade portuaria"
+            >
             <svg viewBox="0 0 200 266" xmlns="http://www.w3.org/2000/svg" width="120" aria-hidden="true">
               <rect width="200" height="266" fill="none"/>
               <!-- Minimal port silhouette, small scale -->
