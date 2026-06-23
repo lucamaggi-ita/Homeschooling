@@ -158,6 +158,22 @@ O site é uma **ferramenta de estudo**, não uma página de marketing.
 - [ ] Layout responsivo testado em viewport mobile e desktop
 - [ ] Ficha imprimível renderiza corretamente
 
+### Cards das semanas
+
+Toda semana publicada na home deve usar o mesmo componente reutilizável de card:
+
+- capa já aprovada, sem imagens-placeholder ou geração automática;
+- badge da semana;
+- metadados curtos;
+- título da semana;
+- chips para recursos realmente disponíveis, como Atlas e Ficha;
+- CTA em `<a>` para a lição real, nunca botão sem destino;
+- comportamento responsivo e foco visível por teclado.
+
+A estrutura HTML e as classes CSS são compartilhadas entre todas as semanas.
+Não criar CSS ou markup específico por semana para esse componente.
+Quando a informação existir no Markdown aprovado, título, metadados, recursos e destino da card devem derivar dele.
+
 ### Critério de implementação de uma semana
 
 Uma semana **não está implementada** quando existe apenas uma card, resumo ou link na home. Ela só está implementada quando:

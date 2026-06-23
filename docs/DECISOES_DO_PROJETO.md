@@ -67,6 +67,20 @@ Registro de decisões de design e arquitetura do site. Mantido por Claude; mudan
 
 ---
 
+## 2026-06-23 — Card reutilizável como padrão da home
+
+**Decisão:** A home passa a usar um componente `.semana-card` reutilizável como padrão para semanas publicadas. A primeira instância é a Semana 1.
+
+**Valores iniciais aprovados (Semana 1):** capa de 280 px de altura, título em Lora 24 px, badge no topo esquerdo, chips de recursos, CTA amarelo em `<a>`. Estes valores são a implementação inicial compartilhada e podem ser ajustados globalmente no futuro alterando apenas as regras CSS das classes `.semana-*`.
+
+**Regra permanente:** Nenhuma semana poderá criar variações locais de CSS ou markup para esse componente sem aprovação. A classe `disponivel` (sem acento) é o identificador de status aprovado no chip verde.
+
+**Capa:** A área de capa (`.semana-cover-wrap`, 280 px) fica com fundo escuro (`#110E15`) até que uma capa ilustrada seja aprovada por Luca. Quando entregue, inserir `<img src="assets/capas/semana-XX.webp" alt="...">` dentro do wrapper, sem nenhum outro elemento. Não usar placeholders de arte — área vazia é o estado correto enquanto a capa não existe. A pasta `assets/capas/` deve ser criada somente na primeira entrega.
+
+**Motivo:** Padronizar a estrutura visual e semântica de todas as cards de semanas, evitar CSS duplicado por semana e garantir que futura geração automática (Markdown → HTML) encontre um contrato estável.
+
+---
+
 ## 2026-06-22 — Atlas v1 — dados cartográficos e arquitetura
 
 **Decisão:** Os 6 SVGs do Atlas são gerados por `tools/gerar-mapas-atlas.py` a partir dos dados **Natural Earth 110m** (domínio público). Os arquivos SVG são armazenados em `assets/atlas/` e carregados via `<img>` no HTML. A página do Atlas está em `atlas/index.html`.

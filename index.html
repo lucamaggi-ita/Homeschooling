@@ -255,123 +255,133 @@
       align-items: start;
     }
 
-    /* ── Week card (vertical 3:4) ── */
-    .week-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-lg);
+    /* ── Card de semana (componente reutilizável) ── */
+    .semana-card {
+      background: var(--sb-bg, #2A2430);
+      border-radius: 16px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .week-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+      height: 100%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .week-card-cover {
-      aspect-ratio: 3 / 4;
+    .semana-cover-wrap {
       position: relative;
-      overflow: hidden;
-      background: #0D1020;
+      width: 100%;
+      height: 280px;
+      background: #110E15;
     }
 
-    /* Placeholder cover SVG art for Semana 1 */
-    .cover-placeholder {
-      width: 100%; height: 100%;
-      position: relative;
-      background: linear-gradient(160deg, #0D1A2E 0%, #1A0D1A 50%, #0D2010 100%);
-      display: flex; align-items: center; justify-content: center;
+    .semana-cover-wrap img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .cover-placeholder svg {
-      width: 100%; height: 100%;
-      position: absolute; inset: 0;
-    }
-
-    .cover-badge {
+    .badge-semana-top {
       position: absolute;
-      top: 14px; left: 14px;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 6px;
-      padding: 4px 10px;
-      font-size: 11px; font-weight: 700;
-      color: var(--accent-gold);
-      letter-spacing: 0.06em;
+      top: 16px;
+      left: 16px;
+      background: rgba(42, 36, 48, 0.85);
+      backdrop-filter: blur(4px);
+      color: #FFDF00;
+      font-family: "Sora", system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 800;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border-radius: 6px;
+      z-index: 1;
     }
 
-    .cover-status-dot {
-      position: absolute;
-      top: 14px; right: 14px;
-      width: 8px; height: 8px;
-      background: var(--accent-teal);
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(61,198,180,0.2);
+    .semana-card-body {
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 16px;
     }
 
-    .week-card-body {
-      padding: 18px 20px 20px;
-      display: flex; flex-direction: column; gap: 12px;
-      flex: 1;
-      background: var(--card-bg);
-      color: var(--text-primary);
+    .semana-meta-top {
+      font-family: "Sora", system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFDF00;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0;
     }
 
-    .week-number {
-      font-size: 11px; font-weight: 700;
-      color: var(--accent-gold);
-      text-transform: uppercase; letter-spacing: 0.1em;
+    .semana-card-title {
+      font-family: "Lora", Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #FFFFFF;
+      margin: 0 0 4px;
+      letter-spacing: 0;
     }
 
-    .week-title {
-      font-family: 'Lora', Georgia, serif;
-      font-size: 17px; font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.4;
+    .semana-chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
     }
 
-    .week-chips {
-      display: flex; flex-wrap: wrap; gap: 6px;
-    }
-
-    .chip {
-      padding: 3px 9px;
+    .semana-chip {
+      font-family: "Sora", system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
       border-radius: 20px;
-      font-size: 10px; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.06em;
-    }
-    .chip-atlas {
-      background: rgba(0,39,118,0.1);
-      color: #4A78D8;
-      border: 1px solid rgba(0,39,118,0.2);
-    }
-    .chip-ficha {
-      background: rgba(92,36,69,0.1);
-      color: #9E5878;
-      border: 1px solid rgba(92,36,69,0.2);
-    }
-    .chip-status {
-      background: rgba(0,155,58,0.1);
-      color: var(--accent-teal);
-      border: 1px solid rgba(0,155,58,0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: #E0DBD0;
     }
 
-    .week-cta {
-      margin-top: auto;
-      background: var(--accent-gold);
-      color: #2C0E20;
-      padding: 11px 18px;
-      border-radius: 10px;
-      font-size: 13px; font-weight: 700;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: opacity 0.15s;
+    .semana-chip.disponivel {
+      background: rgba(0, 155, 58, 0.2);
+      color: #4AF287;
+      border: 1px solid rgba(0, 155, 58, 0.3);
     }
-    .week-cta:hover { opacity: 0.9; }
+
+    .semana-btn-action {
+      margin-top: auto;
+      width: 100%;
+      background: #FFDF00;
+      color: #2A2430;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-family: "Sora", system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .semana-btn-action:hover {
+      background: #FFE633;
+      transform: translateY(-1px);
+    }
+
+    .semana-btn-action:active {
+      transform: translateY(1px);
+    }
+
+    .semana-btn-action:focus-visible {
+      outline: 3px solid rgba(255, 223, 0, 0.45);
+      outline-offset: 3px;
+    }
 
     /* ── Discovery cards column ──── */
     .discovery-col {
@@ -644,11 +654,10 @@
       .current-grid {
         grid-template-columns: 1fr;
       }
-      .week-card {
+      .semana-card {
         max-width: 360px;
         margin: 0 auto;
       }
-      .week-card-cover { aspect-ratio: 3/4; }
 
       .world-grid {
         grid-template-columns: 1fr;
@@ -732,116 +741,32 @@
 
     <div class="current-grid">
 
-      <!-- Week card -->
-      <div class="week-card" role="article" aria-label="Semana 1: Por que existem países ricos e países pobres?">
-        <div class="week-card-cover">
-          <div class="cover-placeholder" aria-hidden="true">
-            <!-- Placeholder editorial: silhouettes of ports, buildings, cargo — to be replaced by illustrated cover -->
-            <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <!-- Sky gradient -->
-              <defs>
-                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#0D1A2E"/>
-                  <stop offset="100%" stop-color="#1A0D1A"/>
-                </linearGradient>
-                <linearGradient id="gold-glow" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#E8B84B" stop-opacity="0.6"/>
-                  <stop offset="100%" stop-color="#E8604B" stop-opacity="0.2"/>
-                </linearGradient>
-              </defs>
-              <rect width="300" height="400" fill="url(#sky)"/>
-
-              <!-- Stars -->
-              <circle cx="40" cy="30" r="1" fill="#E8B84B" opacity="0.6"/>
-              <circle cx="120" cy="18" r="1.5" fill="white" opacity="0.4"/>
-              <circle cx="200" cy="42" r="1" fill="white" opacity="0.3"/>
-              <circle cx="260" cy="22" r="1" fill="#4BA8E8" opacity="0.5"/>
-              <circle cx="80" cy="60" r="0.8" fill="white" opacity="0.25"/>
-
-              <!-- Ocean horizon glow -->
-              <ellipse cx="150" cy="230" rx="200" ry="40" fill="#E8B84B" opacity="0.06"/>
-
-              <!-- City skyline — distant -->
-              <rect x="20" y="160" width="14" height="70" rx="2" fill="#1C2840" opacity="0.8"/>
-              <rect x="38" y="145" width="18" height="85" rx="2" fill="#1E2A42"/>
-              <rect x="58" y="155" width="12" height="75" rx="2" fill="#1A2438"/>
-              <rect x="72" y="138" width="20" height="92" rx="2" fill="#1E2A42"/>
-              <rect x="94" y="148" width="15" height="82" rx="2" fill="#1C2840"/>
-              <rect x="111" y="130" width="22" height="100" rx="2" fill="#202C46"/>
-              <rect x="135" y="142" width="16" height="88" rx="2" fill="#1A2438"/>
-              <rect x="153" y="150" width="18" height="80" rx="2" fill="#1C2840"/>
-              <rect x="173" y="135" width="24" height="95" rx="2" fill="#202C46"/>
-              <rect x="199" y="155" width="14" height="75" rx="2" fill="#1A2438"/>
-              <rect x="215" y="148" width="20" height="82" rx="2" fill="#1E2A42"/>
-              <rect x="237" y="140" width="16" height="90" rx="2" fill="#1C2840"/>
-              <rect x="255" y="158" width="12" height="72" rx="2" fill="#1A2438"/>
-
-              <!-- Building windows (lit) -->
-              <rect x="115" y="138" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.7"/>
-              <rect x="121" y="145" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.5"/>
-              <rect x="115" y="150" width="3" height="3" rx="0.5" fill="#4BA8E8" opacity="0.6"/>
-              <rect x="176" y="143" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.6"/>
-              <rect x="182" y="150" width="3" height="3" rx="0.5" fill="#4BA8E8" opacity="0.5"/>
-              <rect x="176" y="158" width="3" height="3" rx="0.5" fill="white" opacity="0.3"/>
-              <rect x="42" y="152" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.5"/>
-              <rect x="218" y="155" width="3" height="3" rx="0.5" fill="#E8B84B" opacity="0.4"/>
-
-              <!-- Water -->
-              <rect x="0" y="230" width="300" height="170" fill="#050D1A" opacity="0.9"/>
-
-              <!-- Water shimmer lines -->
-              <line x1="10" y1="250" x2="60" y2="250" stroke="#4BA8E8" stroke-width="0.5" opacity="0.15"/>
-              <line x1="80" y1="258" x2="150" y2="258" stroke="#4BA8E8" stroke-width="0.5" opacity="0.1"/>
-              <line x1="170" y1="244" x2="240" y2="244" stroke="#E8B84B" stroke-width="0.5" opacity="0.12"/>
-              <line x1="20" y1="270" x2="100" y2="270" stroke="#4BA8E8" stroke-width="0.5" opacity="0.08"/>
-
-              <!-- Ship hull -->
-              <path d="M60 310 L240 310 L230 340 L70 340 Z" fill="#1A2438"/>
-              <!-- Ship deck superstructure -->
-              <rect x="100" y="285" width="80" height="25" rx="3" fill="#1E2A42"/>
-              <rect x="120" y="265" width="40" height="22" rx="2" fill="#202C48"/>
-              <!-- Crane -->
-              <rect x="195" y="275" width="4" height="36" fill="#2A3858"/>
-              <line x1="197" y1="275" x2="225" y2="268" stroke="#2A3858" stroke-width="2"/>
-              <!-- Containers on dock -->
-              <rect x="10" y="295" width="30" height="15" rx="2" fill="#3DC6B4" opacity="0.5"/>
-              <rect x="42" y="295" width="30" height="15" rx="2" fill="#E8604B" opacity="0.4"/>
-              <rect x="250" y="295" width="30" height="15" rx="2" fill="#E8B84B" opacity="0.4"/>
-
-              <!-- Gold light streak from city -->
-              <path d="M150 228 Q80 240 0 250 L0 232 Q80 232 150 228" fill="url(#gold-glow)" opacity="0.4"/>
-
-              <!-- Overlay gradient bottom -->
-              <rect x="0" y="320" width="300" height="80" fill="url(#overlay-bot)" opacity="1"/>
-              <defs>
-                <linearGradient id="overlay-bot" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#050D1A" stop-opacity="0"/>
-                  <stop offset="100%" stop-color="#050D1A" stop-opacity="0.7"/>
-                </linearGradient>
-              </defs>
-
-              <!-- Placeholder label -->
-              <text x="150" y="390" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white" opacity="0.3">capa ilustrada — a ser encomendada</text>
-            </svg>
-          </div>
-          <div class="cover-badge">Semana 1</div>
-          <div class="cover-status-dot" title="Disponível"></div>
+      <!-- Card da Semana 1 -->
+      <article class="semana-card">
+        <div class="semana-cover-wrap">
+          <span class="badge-semana-top">Semana 1</span>
+          <!-- Inserir <img src="assets/capas/semana-01.webp" alt="..."> quando a capa for aprovada por Luca -->
         </div>
 
-        <div class="week-card-body">
-          <div class="week-number">Semana 1 · 4 encontros</div>
-          <h3 class="week-title">Por que existem países ricos e países pobres?</h3>
-          <div class="week-chips">
-            <span class="chip chip-atlas">Atlas</span>
-            <span class="chip chip-ficha">Ficha</span>
-            <span class="chip chip-status">Disponível</span>
+        <div class="semana-card-body">
+          <p class="semana-meta-top">Semana 1 · 4 encontros</p>
+
+          <h2 class="semana-card-title">
+            Por que existem países ricos e países pobres?
+          </h2>
+
+          <div class="semana-chips-group" aria-label="Recursos disponíveis">
+            <span class="semana-chip">Atlas</span>
+            <span class="semana-chip">Ficha</span>
+            <span class="semana-chip disponivel">Disponível</span>
           </div>
-          <a href="semanas/01/index.html" class="week-cta">
-            Começar a semana
-            <span>→</span>
+
+          <a class="semana-btn-action" href="semanas/01/index.html">
+            <span>Começar a semana</span>
+            <span aria-hidden="true">→</span>
           </a>
         </div>
-      </div>
+      </article>
 
       <!-- Discovery cards -->
       <div class="discovery-col" aria-label="Destaques da semana">
