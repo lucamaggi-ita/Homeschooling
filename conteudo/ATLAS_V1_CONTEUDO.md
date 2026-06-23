@@ -213,14 +213,7 @@ Qual frase é mais cuidadosa? Explique o que a segunda acrescenta.
 
 ## Comparar os quatro casos
 
-Depois de observar os mapas, registrem suas respostas na ficha da Semana 1. A última coluna é obrigatória: ela impede que o mapa seja usado como explicação única.
-
-| País | Continente | Acesso ao mar | Dois vizinhos ou mares próximos | Uma possibilidade geográfica | Uma pergunta que o mapa não responde |
-|---|---|---|---|---|---|
-| Brasil | América do Sul | Sim |  |  |  |
-| Noruega | Europa | Sim |  |  |  |
-| Coreia do Sul | Ásia | Sim |  |  |  |
-| Nigéria | África | Sim |  |  |  |
+Depois de observar os mapas, registrem suas respostas diretamente na ficha da Semana 1. A última coluna é obrigatória: ela impede que o mapa seja usado como explicação única.
 
 ### Respostas de referência para o adulto
 
