@@ -237,6 +237,51 @@ A imagem de capa pertence exclusivamente a:
 
 ---
 
+## 2026-06-29 — Contrato Atlas por Semana/Capítulo
+
+**Decisão:** Cada Semana/Capítulo tem seu próprio Atlas dedicado. `atlas/index.html` é apenas biblioteca/índice dos Atlas — não página cumulativa com todas as semanas em scroll vertical.
+
+**Motivo:** O Atlas cumulativo (Semana 1 + Semana 2 na mesma página) foi uma prova técnica aceitável, mas não é a estrutura didática final. O aluno que estuda a Semana 2 não deve ser obrigado a percorrer verticalmente o Atlas da Semana 1 para chegar ao conteúdo relevante.
+
+### Estrutura obrigatória
+
+```
+atlas/
+  index.html              ← índice geral / biblioteca dos Atlas
+  semana-01/
+    index.html            ← somente Atlas da Semana 1
+  semana-02/
+    index.html            ← somente Atlas da Semana 2
+  semana-NN/
+    index.html            ← criado quando a semana for publicada
+
+assets/atlas/
+  base/                   ← mapas reutilizáveis (mapa-mundi-nomes.svg, mapa-mundi-mudo.svg)
+  semana-01/              ← mapas específicos da Semana 1
+  semana-02/              ← mapas específicos da Semana 2
+```
+
+### Regras permanentes
+
+- Todo Atlas semanal deve incluir como primeiros mapas: **Mundo com nomes** e **Mundo mudo** (obrigatórios em todas as semanas).
+- Mapas base reutilizáveis ficam em `assets/atlas/base/`. Mapas com países destacados ficam em `assets/atlas/semana-XX/` — nunca soltos em `assets/atlas/`.
+- A partir de `atlas/semana-XX/index.html`, todos os paths para assets usam `../../assets/...`.
+- Links nas cards da home e nas páginas das lições apontam ao Atlas específico da semana (`atlas/semana-XX/index.html`), não ao índice geral.
+- `atlas/index.html` exibe apenas cards de navegação por semana, sem renderizar mapas diretamente.
+- Ao adicionar uma nova semana, nunca deletar nem substituir o Atlas das semanas anteriores.
+
+### Paths de referência
+
+| Arquivo | Path para assets |
+|---|---|
+| `atlas/index.html` | `../assets/...` |
+| `atlas/semana-01/index.html` | `../../assets/...` |
+| `atlas/semana-02/index.html` | `../../assets/...` |
+| `semanas/01/index.html` | `../../assets/...` |
+| `semanas/02/index.html` | `../../assets/...` |
+
+---
+
 ## Contrato visual — cabeçalhos de seção
 
 Toda seção principal do site deve usar o padrão `.section-header`:

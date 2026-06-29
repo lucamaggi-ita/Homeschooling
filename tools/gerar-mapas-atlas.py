@@ -552,23 +552,30 @@ def make_svg(features, bbox, w, h, show_labels=True,
 
 # ── Definição dos 6 mapas ────────────────────────────────────────────────────
 MAPS = [
-    # ── Semana 1 ──────────────────────────────────────────────────────────────
-    dict(id="mapa-mundi-nomes",       bbox=(-180,-90,180,90),  w=960,h=500,
+    # ── Base — mapas reutilizáveis em todas as semanas ───────────────────────
+    dict(id="mapa-mundi-nomes",       subdir="base",
+         bbox=(-180,-90,180,90),  w=960,h=500,
          show_labels=True,  water_key="world",
          focus_names=FOCUS_S1),
-    dict(id="mapa-mundi-mudo",        bbox=(-180,-90,180,90),  w=960,h=500,
+    dict(id="mapa-mundi-mudo",        subdir="base",
+         bbox=(-180,-90,180,90),  w=960,h=500,
          show_labels=False, water_key=None,
          focus_names=FOCUS_S1),
-    dict(id="europa-nomes",           bbox=(-30,34,55,73),      w=800,h=580,
+    # ── Semana 1 — gravados em assets/atlas/semana-01/ ───────────────────────
+    dict(id="europa-nomes",           subdir="semana-01",
+         bbox=(-30,34,55,73),      w=800,h=580,
          show_labels=True,  water_key="europa",
          focus_names=FOCUS_S1),
-    dict(id="africa-nomes",           bbox=(-20,-37,55,38),     w=740,h=700,
+    dict(id="africa-nomes",           subdir="semana-01",
+         bbox=(-20,-37,55,38),     w=740,h=700,
          show_labels=True,  water_key="africa",
          focus_names=FOCUS_S1),
-    dict(id="asia-nomes",             bbox=(95,28,155,55),      w=800,h=560,
+    dict(id="asia-nomes",             subdir="semana-01",
+         bbox=(95,28,155,55),      w=800,h=560,
          show_labels=True,  water_key="asia",  geo_key="asia",
          focus_names=FOCUS_S1),
-    dict(id="america-do-sul-nomes",   bbox=(-85,-57,-30,14),    w=700,h=800,
+    dict(id="america-do-sul-nomes",   subdir="semana-01",
+         bbox=(-85,-57,-30,14),    w=700,h=800,
          show_labels=True,  water_key="america-do-sul", show_salvador=True,
          focus_names=FOCUS_S1),
     # ── Semana 2 — gravados em assets/atlas/semana-02/ ───────────────────────
@@ -616,7 +623,7 @@ def main():
         size_kb = os.path.getsize(path) // 1024
         print(f"  OK {rel}  ({size_kb} KB)")
 
-    print(f"\nConcluído. {len(MAPS)} SVGs em assets/atlas/  (6 Semana 1 + 2 Semana 2)")
+    print(f"\nConcluído. {len(MAPS)} SVGs em assets/atlas/  (2 base/ + 4 semana-01/ + 2 semana-02/)")
     print("Atribuição: Natural Earth, domínio público — https://www.naturalearthdata.com")
 
 

@@ -427,6 +427,73 @@
   .atlas-question { font-size: 15px; }
 }
 
+/* ── Biblioteca / índice de Atlas ────────────────────────────── */
+.atlas-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.atlas-index-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid #E0DBD0;
+  border-radius: 16px;
+  padding: 28px 24px 24px;
+  color: var(--lt-text);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.atlas-index-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-color: var(--br-verde);
+}
+
+.atlas-index-card-eyebrow {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--accent-teal);
+}
+
+.atlas-index-card-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px; font-weight: 600;
+  line-height: 1.35; color: var(--lt-text);
+  margin: 0;
+}
+
+.atlas-index-card-desc {
+  font-size: 13px; color: var(--lt-muted);
+  margin: 0;
+}
+
+.atlas-index-card-maps {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.atlas-index-card-maps li {
+  font-size: 13px; color: var(--lt-muted);
+  padding-left: 16px;
+  position: relative;
+}
+.atlas-index-card-maps li::before {
+  content: '›';
+  position: absolute; left: 0;
+  color: var(--br-verde);
+  font-weight: 700;
+}
+
+.atlas-index-card-cta {
+  margin-top: auto;
+  padding-top: 14px;
+  font-size: 13px; font-weight: 700;
+  color: var(--br-verde);
+  letter-spacing: 0.02em;
+}
+
 /* ── Print ───────────────────────────────────────────────────── */
 @media print {
   .atlas-nav, .atlas-zoom-btn, .atlas-footer { display: none !important; }

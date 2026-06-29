@@ -93,6 +93,20 @@ Tratamento de blocos não reconhecidos:
 - Um link, card ou placeholder não constitui um Atlas implementado. Para uma semana ser estudável, os mapas especificamente solicitados por ela devem estar disponíveis no Atlas.
 - Para a Semana 1, o Atlas v1 deve permitir consultar ao menos mapa-múndi com nomes, mapa-múndi mudo e mapas com nomes de Europa, África, Ásia e América do Sul.
 
+#### Contrato Atlas por Semana/Capítulo
+
+- **Cada Semana/Capítulo tem seu próprio Atlas dedicado.** O aluno que entra na Semana 2 vê apenas o Atlas da Semana 2.
+- `atlas/index.html` é apenas índice/biblioteca dos Atlas — não página cumulativa com todas as semanas em scroll vertical.
+- `atlas/semana-01/index.html` contém apenas o Atlas da Semana 1.
+- `atlas/semana-02/index.html` contém apenas o Atlas da Semana 2.
+- Ao adicionar uma nova semana, nunca deletar nem substituir o Atlas das semanas anteriores.
+- Todo Atlas semanal deve incluir obrigatoriamente como primeiros mapas: **Mundo com nomes** e **Mundo mudo**.
+- Mapas base reutilizáveis ficam em `assets/atlas/base/` (ex.: `mapa-mundi-nomes.svg`, `mapa-mundi-mudo.svg`).
+- Mapas específicos de uma semana ficam em `assets/atlas/semana-XX/`. Mapas com países destacados devem ser sempre específicos da semana, nunca soltos em `assets/atlas/`.
+- A partir de `atlas/semana-XX/index.html`, todos os paths para assets usam `../../assets/...`.
+- Os links nas cards da home e nas páginas das lições devem apontar ao Atlas específico da semana (`atlas/semana-XX/index.html`), não ao índice geral.
+- `atlas/index.html` torna-se biblioteca de cards: "Atlas Semana 1 — abrir", "Atlas Semana 2 — abrir", etc. Não renderiza mapas diretamente.
+
 ### Vídeos
 
 - Vídeos devem ser incorporáveis (iframe ou player nativo do YouTube).
@@ -234,14 +248,24 @@ Uma semana **não está implementada** quando existe apenas uma card, resumo ou 
 │   │   └── ficha.html
 │   └── ...
 ├── atlas/
-│   └── index.html
+│   ├── index.html           ← índice/biblioteca dos Atlas
+│   ├── semana-01/
+│   │   └── index.html
+│   ├── semana-02/
+│   │   └── index.html
+│   └── semana-NN/
+│       └── index.html
 ├── assets/
 │   ├── css/
 │   ├── js/
 │   ├── img/
-│   └── capas/
-│       ├── semana-01.webp
-│       └── ...
+│   ├── capas/
+│   │   ├── semana-01.webp
+│   │   └── ...
+│   └── atlas/
+│       ├── base/            ← mapas reutilizáveis (mundi-nomes, mundi-mudo)
+│       ├── semana-01/       ← mapas específicos da Semana 1
+│       └── semana-02/       ← mapas específicos da Semana 2
 └── conteudo/
     ├── Semana_01/
     │   ├── SEMANA_01_CONTEUDO_SITE.md
