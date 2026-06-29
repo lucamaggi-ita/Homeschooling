@@ -271,6 +271,7 @@
       width: 100%;
       aspect-ratio: 9 / 16;
       background: #110E15;
+      overflow: hidden;
     }
 
     .semana-cover-wrap img {
@@ -278,6 +279,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
 
     .badge-semana-top {
@@ -546,6 +548,9 @@
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     .lib-card:hover {
       transform: translateY(-3px);
@@ -555,12 +560,14 @@
     .lib-cover {
       aspect-ratio: 3 / 4;
       position: relative;
+      overflow: hidden;
     }
 
     .lib-cover-inner {
       width: 100%; height: 100%;
       background: linear-gradient(160deg, #0D1A2E 0%, #1A0D1A 50%, #0D2010 100%);
       display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
     }
 
     .lib-cover-inner svg {
@@ -575,6 +582,11 @@
       object-position: center;
     }
 
+    .lib-card--semana-02 .lib-cover-image {
+      transform: scale(1.08);
+      transform-origin: center center;
+    }
+
     .lib-card:first-child .lib-cover-inner svg {
       display: none;
     }
@@ -582,6 +594,9 @@
     .lib-body {
       padding: 8px;
       background: var(--card-bg);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
     .lib-num {
       font-size: 9px; font-weight: 700;
@@ -596,7 +611,8 @@
       line-height: 1.4;
     }
     .lib-status {
-      margin-top: 6px;
+      margin-top: auto;
+      padding-top: 8px;
       display: flex; align-items: center; gap: 5px;
       font-size: 9px; font-weight: 600;
       color: var(--accent-teal);
@@ -751,35 +767,37 @@
 
     <div class="section-header">
       <div class="section-eyebrow" style="color: #B87820">Nesta semana</div>
-      <h2 class="section-title" id="sec1-title">Semana 1 — pronta para explorar</h2>
+      <h2 class="section-title" id="sec1-title">Semana 2 — pronta para explorar</h2>
     </div>
 
     <div class="current-grid">
 
-      <!-- Card da Semana 1 -->
+      <!-- Card da Semana 2 -->
       <article class="semana-card">
         <div class="semana-cover-wrap">
-          <span class="badge-semana-top">Semana 1</span>
+          <span class="badge-semana-top">Semana 2</span>
           <img
-            src="assets/capas/semana-01-contraste-oportunidades.svg"
-            alt="Contraste entre poucas oportunidades e cidade portuaria"
+            src="assets/capas/semana-02-ler-mundo-mapa.png"
+            alt="Ilustração da Semana 2: mapa do mundo com rotas comerciais, bússola, marcadores de países e elementos de orçamento público."
+            loading="eager"
           >
         </div>
 
         <div class="semana-card-body">
-          <p class="semana-meta-top">Semana 1 · 4 encontros</p>
+          <p class="semana-meta-top">Semana 2 · 5 encontros</p>
 
           <h2 class="semana-card-title">
-            Por que existem países ricos e países pobres?
+            Como ler o mundo no mapa
           </h2>
 
           <div class="semana-chips-group" aria-label="Recursos disponíveis">
             <span class="semana-chip">Atlas</span>
             <span class="semana-chip">Ficha</span>
+            <span class="semana-chip">Inglês + Italiano</span>
             <span class="semana-chip disponivel">Disponível</span>
           </div>
 
-          <a class="semana-btn-action" href="semanas/01/index.html">
+          <a class="semana-btn-action" href="semanas/02/index.html">
             <span>Começar a semana</span>
             <span aria-hidden="true">→</span>
           </a>
@@ -793,8 +811,8 @@
           <div class="disc-icon-wrap">💡</div>
           <div class="disc-body">
             <div class="disc-label">Conceito-chave</div>
-            <h3 class="disc-title">Desenvolvimento é ampliar oportunidades reais</h3>
-            <div class="disc-desc">Não é apenas ter mais dinheiro circulando — é poder estudar, trabalhar com dignidade, circular com segurança e planejar o futuro.</div>
+            <h3 class="disc-title">Ler o mapa é uma ferramenta de pensamento</h3>
+            <div class="disc-desc">Não significa decorar países — significa localizar, fazer perguntas melhores e entender quem está perto de quem, quem controla rotas e onde estão as tensões.</div>
           </div>
           <div class="disc-arrow">›</div>
         </div>
@@ -804,7 +822,7 @@
           <div class="disc-body">
             <div class="disc-label">Missões desta semana</div>
             <h3 class="disc-title">Enzo e Felipe têm desafios calibrados</h3>
-            <div class="disc-desc">Enzo explora trajetos, mapas e cadeias do cacau. Felipe argumenta, usa contraexemplos e escreve teses sobre o Brasil.</div>
+            <div class="disc-desc">Enzo localiza países e oceanos com cartas e setas. Felipe monta orçamento público, argumenta sobre potências e escreve em inglês e italiano.</div>
           </div>
           <div class="disc-arrow">›</div>
         </div>
@@ -814,7 +832,7 @@
           <div class="disc-body">
             <div class="disc-label">Para conversar em família</div>
             <h3 class="disc-title">7 perguntas para o debate</h3>
-            <div class="disc-desc">Um país pode ser rico e injusto ao mesmo tempo? Por que um porto, uma escola e um contrato aparecem na mesma conversa?</div>
+            <div class="disc-desc">Um país grande é sempre poderoso? Imposto é sempre ruim? Por que o Oriente Médio não pode ser explicado por uma causa única?</div>
           </div>
           <div class="disc-arrow">›</div>
         </div>
@@ -823,8 +841,8 @@
           <div class="disc-icon-wrap">📋</div>
           <div class="disc-body">
             <div class="disc-label">Ficha imprimível</div>
-            <h3 class="disc-title">1–2 páginas para atividade presencial</h3>
-            <div class="disc-desc">Quatro lentes para um país, teste do contraexemplo, cadeia do cacau ao chocolate e hipótese sobre o Brasil.</div>
+            <h3 class="disc-title">2–3 páginas para atividade presencial</h3>
+            <div class="disc-desc">Países e capitais, orçamento de 100 bilhões, zona quente, frases em inglês e italiano e produção final.</div>
           </div>
           <div class="disc-arrow">›</div>
         </div>
@@ -845,13 +863,15 @@
 
       <a href="atlas/index.html" class="world-card atlas" style="text-decoration:none;display:block;">
         <div class="world-card-icon">🗺️</div>
-        <div class="world-card-title">Atlas da Semana 1</div>
-        <div class="world-card-desc">Localize Brasil, Noruega, Coreia do Sul e Nigéria. Observe acesso ao mar, vizinhos, posição no continente e proximidade de rotas marítimas.</div>
+        <div class="world-card-title">Atlas da Semana 2</div>
+        <div class="world-card-desc">Localize continentes, oceanos e países-chave. Observe fronteiras, acesso ao mar, rotas comerciais e posição estratégica.</div>
         <div class="world-countries">
           <span class="country-pill">🇧🇷 Brasil</span>
-          <span class="country-pill">🇳🇴 Noruega</span>
-          <span class="country-pill">🇰🇷 Coreia do Sul</span>
-          <span class="country-pill">🇳🇬 Nigéria</span>
+          <span class="country-pill">🇨🇳 China</span>
+          <span class="country-pill">🇺🇸 EUA</span>
+          <span class="country-pill">🇮🇳 Índia</span>
+          <span class="country-pill">🇩🇪 Alemanha</span>
+          <span class="country-pill">🇯🇵 Japão</span>
         </div>
         <div class="world-cta">Abrir Atlas →</div>
       </a>
@@ -877,8 +897,8 @@
 
     <div class="library-grid">
 
-      <!-- Semana 1 — única existente -->
-      <div class="lib-card">
+      <!-- Semana 1 — disponível -->
+      <a href="semanas/01/index.html" class="lib-card" style="text-decoration:none;">
         <div class="lib-cover">
           <div class="lib-cover-inner">
             <img
@@ -920,9 +940,31 @@
             Disponível
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Próximas semanas — estados honestos (não publicadas) -->
+      <!-- Semana 2 — disponível -->
+      <a href="semanas/02/index.html" class="lib-card lib-card--semana-02" style="text-decoration:none;">
+        <div class="lib-cover">
+          <div class="lib-cover-inner">
+            <img
+              class="lib-cover-image"
+              src="assets/capas/semana-02-ler-mundo-mapa.png"
+              alt="Ilustração da Semana 2: mapa do mundo com rotas comerciais, bússola, marcadores de países e elementos de orçamento público."
+              loading="lazy"
+            >
+          </div>
+        </div>
+        <div class="lib-body">
+          <div class="lib-num">Semana 2</div>
+          <div class="lib-title">Como ler o mundo no mapa</div>
+          <div class="lib-status">
+            <span class="lib-status-dot"></span>
+            Disponível
+          </div>
+        </div>
+      </a>
+
+      <!-- Semana 3 — em breve -->
       <div class="lib-card" style="opacity:0.35; pointer-events:none; cursor:default;" aria-hidden="true">
         <div class="lib-cover">
           <div class="lib-cover-inner" style="background:#0F111A;">
@@ -933,7 +975,7 @@
           </div>
         </div>
         <div class="lib-body">
-          <div class="lib-num">Semana 2</div>
+          <div class="lib-num">Semana 3</div>
           <div class="lib-title" style="color:var(--text-muted)">A próxima semana chegará em breve</div>
         </div>
       </div>

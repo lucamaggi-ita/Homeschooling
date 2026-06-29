@@ -171,7 +171,14 @@ Toda capa inserida no site deve respeitar o contrato registrado em `docs/DECISOE
 
 **Formato:** SVG para vetores simples; PNG para ilustrações ricas. Dimensão recomendada para PNG: 1080 × 1920 px (9:16). Nunca converter automaticamente.
 
-**Antes de criar ou inserir uma nova capa semanal:** verificar o contrato em `docs/DECISOES_DO_PROJETO.md` (seção "Contrato visual — cards semanais e miniaturas"). A imagem deve ser apenas ilustração — número da semana, título, chips e botão pertencem ao HTML do card, nunca à imagem. Se a imagem tiver painel vazio e proporção igual ao wrapper (9:16), CSS não resolve — devolver ao autor para crop. Não gerar imagem-card completa.
+**Antes de criar ou inserir uma nova capa semanal:** verificar o contrato em `docs/DECISOES_DO_PROJETO.md` (seção "Contrato visual — cards semanais e miniaturas"). A imagem deve ser apenas ilustração — número da semana, título, chips e botão pertencem ao HTML do card, nunca à imagem. Verificar também se o arquivo não contém margens brancas/claras externas nem painel vazio interno — `object-fit: cover` não elimina defeitos baked no PNG. Se a imagem vier com margem externa ou painel vazio, normalizar (cropar) antes de entrar no repositório. Se a proporção for idêntica ao wrapper (9:16), CSS não resolve — devolver ao autor para crop. O alinhamento de "Disponível" na biblioteca depende do padrão flex de `.lib-card`/`.lib-body`/`.lib-status`. Não gerar imagem-card completa.
+
+### Páginas internas das semanas
+
+Páginas internas das semanas (`semanas/XX/index.html`) não usam hero image inicial.
+As capas ficam na home (`.semana-cover-wrap`) e na biblioteca (`.lib-cover`).
+Na página da lição, depois do cabeçalho (`<header class="lesson-hero">`), entra diretamente o `<article>` com o conteúdo textual.
+Não inserir `<div class="lesson-cover">` nem nenhum `<img>` de capa entre o `</header>` e o `<article>`, salvo autorização explícita de Luca.
 
 ### Cards das semanas
 
