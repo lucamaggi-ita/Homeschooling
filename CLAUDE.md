@@ -158,6 +158,21 @@ O site é uma **ferramenta de estudo**, não uma página de marketing.
 - [ ] Layout responsivo testado em viewport mobile e desktop
 - [ ] Ficha imprimível renderiza corretamente
 
+### Contrato visual das capas
+
+Toda capa inserida no site deve respeitar o contrato registrado em `docs/DECISOES_DO_PROJETO.md` (seção 2026-06-28). Resumo obrigatório:
+
+| Contexto | Wrapper | Proporção | CSS crítico |
+|---|---|---|---|
+| Card principal ("Nesta semana") | `.semana-cover-wrap` | `9 / 16` | `overflow:hidden; object-fit:cover; object-position:center` |
+| Miniatura da biblioteca | `.lib-cover` | `3 / 4` | `overflow:hidden; object-fit:cover; object-position:center` |
+
+**A capa é sempre tratada como conteúdo recortável.** A imagem nunca deve ser exibida em altura natural. Se a imagem contiver área escura/vazia interna destinada a texto, usar `object-position: top center` para excluí-la do recorte — ou devolver ao autor para correção do arquivo.
+
+**Formato:** SVG para vetores simples; PNG para ilustrações ricas. Dimensão recomendada para PNG: 1080 × 1920 px (9:16). Nunca converter automaticamente.
+
+**Antes de criar ou inserir uma nova capa semanal:** verificar o contrato em `docs/DECISOES_DO_PROJETO.md` (seção "Contrato visual — cards semanais e miniaturas"). A imagem deve ser apenas ilustração — número da semana, título, chips e botão pertencem ao HTML do card, nunca à imagem. Se a imagem tiver painel vazio e proporção igual ao wrapper (9:16), CSS não resolve — devolver ao autor para crop. Não gerar imagem-card completa.
+
 ### Cards das semanas
 
 Toda semana publicada na home deve usar o mesmo componente reutilizável de card:
@@ -173,6 +188,10 @@ Toda semana publicada na home deve usar o mesmo componente reutilizável de card
 A estrutura HTML e as classes CSS são compartilhadas entre todas as semanas.
 Não criar CSS ou markup específico por semana para esse componente.
 Quando a informação existir no Markdown aprovado, título, metadados, recursos e destino da card devem derivar dele.
+
+### Cabeçalhos de seção
+
+Antes de criar uma nova seção visual, reutilizar o padrão `.section-header` + `.section-eyebrow` + `.section-title` (ver contrato em `docs/DECISOES_DO_PROJETO.md`). A label pequena usa 11px, uppercase, font-weight 700 e letter-spacing 0.14em. O título usa `.section-title`. Não criar títulos manuais fora do contrato visual.
 
 ### Critério de implementação de uma semana
 
