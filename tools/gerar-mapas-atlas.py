@@ -169,6 +169,7 @@ LABEL_OVERRIDE = {
     "Austrália":        (134.0, -27.0),
     "Cazaquistão":      (68.0,  48.0),
     "Mongólia":         (104.0, 46.5),
+    "Indonésia":        (117.0,  -2.0),
 }
 
 # ── Rótulos de massas d'água (lon, lat, texto, cor-opcional) ──────────────────
@@ -197,6 +198,14 @@ WATER_LABELS = {
         (137.0,  38.0, "Mar do Japão\n(Mar do Leste)"),
         (151.0,  46.0, "Oceano Pacífico"),
     ],
+    "asia-s2": [
+        ( 73.0,  -6.0, "Oceano Índico"),
+        ( 88.0,  13.0, "Baía de Bengala"),
+        (114.0,  12.0, "Mar do Sul da China"),
+        (121.0,  32.5, "Mar Amarelo"),
+        (137.0,  38.0, "Mar do Japão\n(Mar do Leste)"),
+        (148.0,  48.0, "Oceano Pacífico"),
+    ],
     "america-do-sul": [
         (-43.0, -16.0, "Oceano Atlântico"),
         (-82.0, -16.0, "Oceano Pacífico"),
@@ -207,6 +216,10 @@ WATER_LABELS = {
 GEO_LABELS = {
     "asia": [
         (127.8, 38.8, "Pen. Coreana"),
+    ],
+    "asia-s2": [
+        (127.8, 38.8, "Pen. Coreana"),
+        ( 79.0, 13.5, "Subcontinente\nIndiano"),
     ],
 }
 
@@ -220,7 +233,20 @@ WATER_COL   = "#4A6880"
 GEO_COL     = "#3A4A30"
 ATTRIBUTION = "#909098"
 
-FOCUS_NAMES = {"Brasil", "Noruega", "Coreia do Sul", "Nigéria"}
+# Semana 1 — casos de estudo
+FOCUS_S1 = {"Brasil", "Noruega", "Coreia do Sul", "Nigéria"}
+
+# Semana 2 — países-chave do mapa mundial
+FOCUS_S2_WORLD = {
+    "Brasil", "Estados Unidos", "China", "Rússia", "Índia",
+    "Reino Unido", "França", "Alemanha", "Japão", "Austrália",
+    "Egito", "África do Sul",
+}
+
+# Semana 2 — foco da Ásia ampliada
+FOCUS_S2_ASIA = {"China", "Índia", "Japão", "Coreia do Sul", "Indonésia"}
+
+FOCUS_NAMES = FOCUS_S1  # mantém compatibilidade com chamadas sem parâmetro
 
 # ── Utilitários ───────────────────────────────────────────────────────────────
 def esc(s):
@@ -376,7 +402,11 @@ def text_shadow(x, y, label, size, weight, fill, anchor="middle", baseline="midd
 
 # ── Geração do SVG ─────────────────────────────────────────────────────────────
 def make_svg(features, bbox, w, h, show_labels=True,
-             water_key=None, geo_key=None, show_salvador=False, pad=24):
+             water_key=None, geo_key=None, show_salvador=False, pad=24,
+             focus_names=None):
+
+    if focus_names is None:
+        focus_names = FOCUS_S1
 
     proj = make_proj(bbox, w, h, pad)
     min_lon, min_lat, max_lon, max_lat = bbox
@@ -403,7 +433,7 @@ def make_svg(features, bbox, w, h, show_labels=True,
         name_en = (props.get("NAME") or props.get("ADMIN") or
                    props.get("NAME_EN") or "")
         name_pt = PT.get(name_en, name_en)
-        fill = FOCUS_FILL if name_pt in FOCUS_NAMES else LAND_FILL
+        fill = FOCUS_FILL if name_pt in focus_names else LAND_FILL
         d = geom_to_d(geom, proj)
         if d:
             out.append(
@@ -459,7 +489,7 @@ def make_svg(features, bbox, w, h, show_labels=True,
                     lons = [p[0] for p in ring]
                     lats = [p[1] for p in ring]
                     a = (max(lons) - min(lons)) * (max(lats) - min(lats))
-                    if a < 80 and name_pt not in FOCUS_NAMES:
+                    if a < 80 and name_pt not in focus_names:
                         continue
 
             # Posição do rótulo
@@ -478,7 +508,7 @@ def make_svg(features, bbox, w, h, show_labels=True,
             if x < pad - 5 or x > w - pad + 5: continue
             if y < pad - 5 or y > h - pad + 5: continue
 
-            is_focus = name_pt in FOCUS_NAMES
+            is_focus = name_pt in focus_names
             size   = 11 if is_focus else 9
             weight = "bold" if is_focus else "normal"
             out.append(text_shadow(x, y, name_pt, size, weight, LABEL_COL))
@@ -522,18 +552,34 @@ def make_svg(features, bbox, w, h, show_labels=True,
 
 # ── Definição dos 6 mapas ────────────────────────────────────────────────────
 MAPS = [
+    # ── Semana 1 ──────────────────────────────────────────────────────────────
     dict(id="mapa-mundi-nomes",       bbox=(-180,-90,180,90),  w=960,h=500,
-         show_labels=True,  water_key="world"),
+         show_labels=True,  water_key="world",
+         focus_names=FOCUS_S1),
     dict(id="mapa-mundi-mudo",        bbox=(-180,-90,180,90),  w=960,h=500,
-         show_labels=False, water_key=None),
+         show_labels=False, water_key=None,
+         focus_names=FOCUS_S1),
     dict(id="europa-nomes",           bbox=(-30,34,55,73),      w=800,h=580,
-         show_labels=True,  water_key="europa"),
+         show_labels=True,  water_key="europa",
+         focus_names=FOCUS_S1),
     dict(id="africa-nomes",           bbox=(-20,-37,55,38),     w=740,h=700,
-         show_labels=True,  water_key="africa"),
+         show_labels=True,  water_key="africa",
+         focus_names=FOCUS_S1),
     dict(id="asia-nomes",             bbox=(95,28,155,55),      w=800,h=560,
-         show_labels=True,  water_key="asia",  geo_key="asia"),
+         show_labels=True,  water_key="asia",  geo_key="asia",
+         focus_names=FOCUS_S1),
     dict(id="america-do-sul-nomes",   bbox=(-85,-57,-30,14),    w=700,h=800,
-         show_labels=True,  water_key="america-do-sul", show_salvador=True),
+         show_labels=True,  water_key="america-do-sul", show_salvador=True,
+         focus_names=FOCUS_S1),
+    # ── Semana 2 — gravados em assets/atlas/semana-02/ ───────────────────────
+    dict(id="mapa-mundi-destaques", subdir="semana-02",
+         bbox=(-180,-90,180,90), w=960,h=500,
+         show_labels=True, water_key="world",
+         focus_names=FOCUS_S2_WORLD),
+    dict(id="mapa-asia-destaques", subdir="semana-02",
+         bbox=(60,-13,155,58),   w=960,h=600,
+         show_labels=True, water_key="asia-s2", geo_key="asia-s2",
+         focus_names=FOCUS_S2_ASIA),
 ]
 
 
@@ -548,7 +594,10 @@ def main():
     print(f"  {len(features)} features carregadas\n")
 
     for cfg in MAPS:
-        mid = cfg["id"]
+        mid    = cfg["id"]
+        subdir = cfg.get("subdir", "")
+        out_dir = os.path.join(OUT_DIR, subdir) if subdir else OUT_DIR
+        os.makedirs(out_dir, exist_ok=True)
         svg = make_svg(
             features     = features,
             bbox         = cfg["bbox"],
@@ -558,14 +607,16 @@ def main():
             water_key    = cfg.get("water_key"),
             geo_key      = cfg.get("geo_key"),
             show_salvador= cfg.get("show_salvador", False),
+            focus_names  = cfg.get("focus_names"),
         )
-        path = os.path.join(OUT_DIR, f"{mid}.svg")
+        path = os.path.join(out_dir, f"{mid}.svg")
         with open(path, "w", encoding="utf-8") as f:
             f.write(svg)
+        rel  = (subdir + "/" if subdir else "") + f"{mid}.svg"
         size_kb = os.path.getsize(path) // 1024
-        print(f"  OK {mid}.svg  ({size_kb} KB)")
+        print(f"  OK {rel}  ({size_kb} KB)")
 
-    print(f"\nConcluído. {len(MAPS)} SVGs em assets/atlas/")
+    print(f"\nConcluído. {len(MAPS)} SVGs em assets/atlas/  (6 Semana 1 + 2 Semana 2)")
     print("Atribuição: Natural Earth, domínio público — https://www.naturalearthdata.com")
 
 
